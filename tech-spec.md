@@ -87,13 +87,27 @@ users (
   updated_at TIMESTAMP DEFAULT NOW()
 );
 
--- Businesses table
+-- Businesses table with composable schema structure
 businesses (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id UUID REFERENCES users(id),
   name VARCHAR(255) NOT NULL,
+  
+  -- Composable schema fields (all optional)
+  revenue JSONB, -- AnnualRevenueSchema: {amount, currency}
+  industry JSONB, -- IndustrySchema: {name, naics, sic}
+  activities JSONB, -- ActivitiesSchema: {activities: string[]}
+  products JSONB, -- ProductsSchema: {products: string[]}
+  size JSONB, -- BusinessSizeSchema: {numEmployees, sbaSizeStandard, chainStatus}
+  type JSONB, -- BusinessTypeSchema: {businessType}
+  flags JSONB, -- BusinessFlagsSchema: {[key: string]: boolean}
+  
+  -- Flexible attributes for anything that doesn't fit specific components
   attributes JSONB NOT NULL DEFAULT '{}',
+  
+  -- Location data
   locations JSONB NOT NULL DEFAULT '[]',
+  
   created_at TIMESTAMP DEFAULT NOW(),
   updated_at TIMESTAMP DEFAULT NOW()
 );
@@ -131,7 +145,7 @@ rule_criteria (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   group_id UUID REFERENCES rule_criteria_groups(id),
   key VARCHAR(100) NOT NULL,
-  operator VARCHAR(20) CHECK (operator IN ('=', '!=', 'IN', 'NOT_IN', '>', '>=', '<', '<=', 'CONTAINS', 'NOT_CONTAINS')),
+  operator VARCHAR(20) CHECK (operator IN ('=', '!=', 'IN', 'NOT_IN', '>', '>=', '<', '<=', 'CONTAINS', 'NOT_CONTAINS', 'CURRENCY_GTE')),
   value JSONB NOT NULL
 );
 ```
@@ -261,6 +275,13 @@ rule_criteria (
 - Database migration management
 
 ## 9. Success Criteria
+
+### Data Structure Principles
+- [ ] **Sparse and specific components** - Only include fields that have clear, well-defined purposes
+- [ ] **Flexible attributes** - Everything that doesn't fit neatly into specific components goes into `attributes`
+- [ ] **Iterative refinement** - Start with specific components, use `attributes` for everything else, then refactor based on actual usage patterns
+- [ ] **No hardcoded industry types** - Use industry classification codes (NAICS/SIC) and let `attributes` handle industry-specific data
+- [ ] **Composable design** - Business schema is built from smaller, focused component schemas
 
 ### Functional Requirements
 - [ ] Users can create and manage business profiles

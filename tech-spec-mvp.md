@@ -80,6 +80,47 @@ storage:
 ```typescript
 import { z } from "zod";
 
+// Core composable schemas
+export const AnnualRevenueSchema = z.object({
+  amount: z.number(),
+  currency: z.string(),
+});
+
+export const IndustrySchema = z.object({
+  name: z.string(),
+  naics: z.string().optional(),
+  sic: z.string().optional(),
+});
+
+export const LocationSchema = z.object({
+  country: z.string(),
+  state: z.string().optional(),
+  province: z.string().optional(),
+  county: z.string().optional(),
+  city: z.string().optional(),
+  fullName: z.string().optional(),
+});
+
+export const ActivitiesSchema = z.object({
+  activities: z.array(z.string()),
+});
+
+export const ProductsSchema = z.object({
+  products: z.array(z.string()),
+});
+
+export const BusinessSizeSchema = z.object({
+  numEmployees: z.number().optional(),
+  sbaSizeStandard: z.enum(['Small Business', 'Large Business']).optional(),
+  chainStatus: z.enum(['independent', 'franchise', 'large_chain', 'single_location']).optional(),
+});
+
+export const BusinessTypeSchema = z.object({
+  businessType: z.enum(['LLC', 'Corporation', 'Partnership', 'Sole Proprietorship']).optional(),
+});
+
+export const BusinessFlagsSchema = z.record(z.boolean().optional());
+
 // User schema
 export const UserSchema = z.object({
   id: z.string(),
@@ -89,12 +130,24 @@ export const UserSchema = z.object({
   updatedAt: z.date(),
 });
 
-// Business schema
+// Core business schema with composable parts
 export const BusinessSchema = z.object({
   id: z.string(),
   name: z.string(),
-  attributes: z.record(z.any()),
-  locations: z.array(z.string()),
+  locations: z.array(LocationSchema),
+  
+  // Composable schemas - all optional
+  revenue: AnnualRevenueSchema.optional(),
+  industry: IndustrySchema.optional(),
+  activities: ActivitiesSchema.optional(),
+  products: ProductsSchema.optional(),
+  size: BusinessSizeSchema.optional(),
+  type: BusinessTypeSchema.optional(),
+  flags: BusinessFlagsSchema.optional(),
+  
+  // Flexible attributes for anything else
+  attributes: z.record(z.any()).optional(),
+  
   createdAt: z.date(),
   updatedAt: z.date(),
 });
@@ -248,6 +301,13 @@ export const appRouter = router({
 - [ ] User-friendly interface and experience
 - [ ] Comprehensive error handling and logging
 - [ ] Type-safe API with tRPC and Zod
+
+### Data Structure Principles
+- [ ] **Sparse and specific components** - Only include fields that have clear, well-defined purposes
+- [ ] **Flexible attributes** - Everything that doesn't fit neatly into specific components goes into `attributes`
+- [ ] **Iterative refinement** - Start with specific components, use `attributes` for everything else, then refactor based on actual usage patterns
+- [ ] **No hardcoded industry types** - Use industry classification codes (NAICS/SIC) and let `attributes` handle industry-specific data
+- [ ] **Composable design** - Business schema is built from smaller, focused component schemas
 
 ### Type Safety Requirements
 - [ ] **Types are the source of truth** - All data structures must conform to defined TypeScript types

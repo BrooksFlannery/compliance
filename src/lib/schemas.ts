@@ -6,13 +6,14 @@ export const AnnualRevenueSchema = z.object({
   currency: z.string(),
 });
 
-export const IndustrySchema = z.object({
+export const IndustrySchema = z.object({//im pretty happy with this type of schema
   name: z.string(),
+  // Industry classification codes used by regulations
   naics: z.string().optional(),
   sic: z.string().optional(),
 });
 
-export const LocationSchema = z.object({
+export const LocationSchema = z.object({//im pretty happy with this type of schema
   country: z.string(),
   state: z.string().optional(),
   province: z.string().optional(),
@@ -21,30 +22,25 @@ export const LocationSchema = z.object({
   fullName: z.string().optional(),
 });
 
-export const ActivitiesSchema = z.object({
+export const ActivitiesSchema = z.object({//this seems to have a lot of overlap with buisness flags, which also has overlap with attributes?
   activities: z.array(z.string()),
 });
 
-export const ProductsSchema = z.object({
+export const ProductsSchema = z.object({//probably need more specific schema for this, like product codes? im sure that exists in many forms
   products: z.array(z.string()),
 });
 
-export const BusinessSizeSchema = z.object({
+export const BusinessSizeSchema = z.object({//im pretty happy with this type of schema
   numEmployees: z.number().optional(),
   sbaSizeStandard: z.enum(['Small Business', 'Large Business']).optional(),
   chainStatus: z.enum(['independent', 'franchise', 'large_chain', 'single_location']).optional(),
 });
 
-export const BusinessTypeSchema = z.object({
+export const BusinessTypeSchema = z.object({//im pretty happy with this type of schema
   businessType: z.enum(['LLC', 'Corporation', 'Partnership', 'Sole Proprietorship']).optional(),
 });
 
-export const BusinessFlagsSchema = z.object({
-  hasAgriculturalOperations: z.boolean().optional(),
-  foodSupplyChain: z.boolean().optional(),
-  internationalOperations: z.boolean().optional(),
-  largeEnterprise: z.boolean().optional(),
-});
+export const BusinessFlagsSchema = z.record(z.boolean().optional()); // Allow any boolean fields
 
 // User schema
 export const UserSchema = z.object({
@@ -77,54 +73,9 @@ export const BusinessSchema = z.object({
   updatedAt: z.date(),
 });
 
-// Specific business type schemas using composition
-export const RestaurantSchema = BusinessSchema.extend({
-  industry: IndustrySchema.extend({
-    name: z.literal('Restaurant'),
-    naics: z.string().default('722511'),
-  }),
-  activities: ActivitiesSchema.extend({
-    activities: z.array(z.string()).default(['serves_food', 'handles_hot_liquids']),
-  }),
-  attributes: z.object({
-    servesAlcohol: z.boolean().optional(),
-    seatingCapacity: z.number().optional(),
-    hasKitchen: z.boolean().optional(),
-  }).optional(),
-});
 
-export const ManufacturingSchema = BusinessSchema.extend({
-  industry: IndustrySchema.extend({
-    name: z.literal('Manufacturing'),
-  }),
-  activities: ActivitiesSchema.extend({
-    activities: z.array(z.string()).default(['manufacturing', 'handles_equipment']),
-  }),
-  attributes: z.object({
-    hasHazardousMaterials: z.boolean().optional(),
-    equipment: z.array(z.string()).optional(),
-    squareFootage: z.number().optional(),
-  }).optional(),
-});
 
-export const AgriculturalSchema = BusinessSchema.extend({
-  industry: IndustrySchema.extend({
-    name: z.literal('Agriculture'),
-  }),
-  activities: ActivitiesSchema.extend({
-    activities: z.array(z.string()).default(['agricultural_production']),
-  }),
-  flags: BusinessFlagsSchema.extend({
-    hasAgriculturalOperations: z.literal(true),
-  }),
-  attributes: z.object({
-    cropTypes: z.array(z.string()).optional(),
-    livestockTypes: z.array(z.string()).optional(),
-    farmSize: z.number().optional(),
-  }).optional(),
-});
-
-// Criterion schema - updated to support new operators
+// Criterion schema
 export const CriterionSchema = z.object({
   id: z.string(),
   key: z.string(),
@@ -183,9 +134,6 @@ export const CreateBusinessInputSchema = z.object({
 // Type exports
 export type User = z.infer<typeof UserSchema>;
 export type Business = z.infer<typeof BusinessSchema>;
-export type Restaurant = z.infer<typeof RestaurantSchema>;
-export type Manufacturing = z.infer<typeof ManufacturingSchema>;
-export type Agricultural = z.infer<typeof AgriculturalSchema>;
 export type Rule = z.infer<typeof RuleSchema>;
 export type Criterion = z.infer<typeof CriterionSchema>;
 export type CriteriaGroup = z.infer<typeof CriteriaGroupSchema>;

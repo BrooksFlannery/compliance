@@ -11,6 +11,7 @@ export default function RulesPage() {
   
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchTerm, setSearchTerm] = useState<string>('');
+  const [showDebugInfo, setShowDebugInfo] = useState<boolean>(false);
   
   const { data: allRules, isLoading: rulesLoading } = api.rules.getAllRules.useQuery();
   const { data: businessRules, isLoading: businessRulesLoading } = api.business.getBusinessRules.useQuery(
@@ -60,6 +61,38 @@ export default function RulesPage() {
     return matchesSearch && matchesCategory;
   }) || [];
 
+  // Helper function to format criteria for display
+  const formatCriteria = (criteriaGroups: any[]) => {
+    if (!criteriaGroups || criteriaGroups.length === 0) {
+      return <span style={{ color: '#999', fontStyle: 'italic' }}>No criteria specified</span>;
+    }
+
+    return criteriaGroups.map((group, groupIndex) => (
+      <div key={group.id || groupIndex} style={{ marginBottom: '10px' }}>
+        <div style={{ 
+          fontWeight: 'bold', 
+          color: '#666', 
+          fontSize: '12px',
+          marginBottom: '5px'
+        }}>
+          Group {groupIndex + 1} ({group.operator})
+        </div>
+        <div style={{ marginLeft: '10px' }}>
+          {group.criteria.map((criterion: any, criterionIndex: number) => (
+            <div key={criterion.id || criterionIndex} style={{ 
+              fontSize: '11px', 
+              color: '#333',
+              marginBottom: '3px',
+              fontFamily: 'monospace'
+            }}>
+              {criterion.key} {criterion.operator} {JSON.stringify(criterion.value)}
+            </div>
+          ))}
+        </div>
+      </div>
+    ));
+  };
+
   if (isLoading) {
     return <div style={{ padding: '20px', textAlign: 'center' }}>Loading rules...</div>;
   }
@@ -68,8 +101,31 @@ export default function RulesPage() {
     <div style={{ 
       minHeight: '100vh', 
       fontFamily: 'Arial, sans-serif',
-      backgroundColor: '#f8f9fa'
+      backgroundColor: '#f8f9fa',
+      position: 'relative'
     }}>
+      {/* Debug Button */}
+      <button
+        onClick={() => setShowDebugInfo(!showDebugInfo)}
+        style={{
+          position: 'fixed',
+          top: '20px',
+          left: '20px',
+          zIndex: 1000,
+          padding: '8px 12px',
+          backgroundColor: showDebugInfo ? '#dc3545' : '#28a745',
+          color: 'white',
+          border: 'none',
+          borderRadius: '4px',
+          fontSize: '12px',
+          fontWeight: 'bold',
+          cursor: 'pointer',
+          boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
+        }}
+      >
+        {showDebugInfo ? 'Hide Debug' : 'Show Debug'}
+      </button>
+
       {/* Header */}
       <div style={{ 
         backgroundColor: 'white', 
@@ -227,6 +283,28 @@ export default function RulesPage() {
                   }}>
                     {rule.shortDescription}
                   </p>
+                )}
+
+                {/* Debug Info */}
+                {showDebugInfo && (
+                  <div style={{
+                    marginBottom: '15px',
+                    padding: '10px',
+                    backgroundColor: '#f8f9fa',
+                    border: '1px solid #dee2e6',
+                    borderRadius: '4px',
+                    borderLeft: '4px solid #007bff'
+                  }}>
+                    <div style={{ 
+                      fontWeight: 'bold', 
+                      color: '#007bff', 
+                      fontSize: '12px',
+                      marginBottom: '8px'
+                    }}>
+                      📋 Inclusion Criteria:
+                    </div>
+                    {formatCriteria(rule.criteriaGroups)}
+                  </div>
                 )}
 
                 {/* Categories */}

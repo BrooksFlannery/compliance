@@ -16,8 +16,8 @@
           "criteria": [
             {
               "id": "arbor-sky-winery-c-1-1",
-              "key": "locations",
-              "operator": "CONTAINS",
+              "key": "locations.state",
+              "operator": "=",
               "value": "CA"
             },
             {
@@ -48,7 +48,7 @@
           "criteria": [
             {
               "id": "arbor-sky-winery-c-2-1",
-              "key": "industry",
+              "key": "attributes.industry",
               "operator": "=",
               "value": "winemaking"
             },
@@ -80,8 +80,8 @@
           "criteria": [
             {
               "id": "arbor-sky-winery-c-3-1",
-              "key": "locations",
-              "operator": "CONTAINS",
+              "key": "locations.state",
+              "operator": "=",
               "value": "CA"
             },
             {
@@ -112,13 +112,13 @@
           "criteria": [
             {
               "id": "arbor-sky-winery-c-4-1",
-              "key": "counties",
+              "key": "attributes.counties",
               "operator": "CONTAINS",
               "value": "Sonoma"
             },
             {
               "id": "arbor-sky-winery-c-4-2",
-              "key": "industry",
+              "key": "attributes.industry",
               "operator": "=",
               "value": "winemaking"
             }
@@ -144,8 +144,8 @@
           "criteria": [
             {
               "id": "arbor-sky-winery-c-5-1",
-              "key": "locations",
-              "operator": "CONTAINS",
+              "key": "locations.state",
+              "operator": "=",
               "value": "CA"
             },
             {
@@ -162,7 +162,7 @@
     },
     {
       "id": "arbor-sky-winery-rule-6",
-      "title": "Food Safety Modernization Act (FSMA)",
+      "title": "Food Safety Modernization Act (FSMA) - Winemaking Facilities",
       "shortDescription": "Winemaking facilities are required to implement food safety practices, including a hazard analysis and risk-based preventive controls (HARPC). Facilities must register with the FDA for inspection",
       "fullText": "Food Safety Modernization Act (FSMA) (21 U.S.C. §2201 et seq.): Winemaking facilities are required to implement food safety practices, including a hazard analysis and risk-based preventive controls (HARPC). Facilities must register with the FDA for inspection",
       "source": "21 U.S.C. §2201 et seq.",
@@ -176,15 +176,9 @@
           "criteria": [
             {
               "id": "arbor-sky-winery-c-6-1",
-              "key": "industry",
+              "key": "attributes.industry",
               "operator": "=",
               "value": "winemaking"
-            },
-            {
-              "id": "arbor-sky-winery-c-6-2",
-              "key": "hasFSMACompliance",
-              "operator": "=",
-              "value": true
             }
           ]
         }
@@ -194,9 +188,9 @@
     },
     {
       "id": "arbor-sky-winery-rule-7",
-      "title": "Organic Certification",
-      "shortDescription": "Winemakers labeling their products as 'organic' must comply with USDA organic standards. Certification involves annual inspections and maintaining organic integrity throughout the production process",
-      "fullText": "Organic Certification (National Organic Program, 7 CFR Part 205): Winemakers labeling their products as 'organic' must comply with USDA organic standards. Certification involves annual inspections and maintaining organic integrity throughout the production process",
+      "title": "Organic Wine Production Standards",
+      "shortDescription": "Winemakers producing organic wines must comply with USDA organic standards, including restrictions on synthetic pesticides, fertilizers, and additives throughout the production process",
+      "fullText": "Organic Wine Production Standards (National Organic Program, 7 CFR Part 205): Winemakers producing organic wines must comply with USDA organic standards, including restrictions on synthetic pesticides, fertilizers, and additives throughout the production process",
       "source": "National Organic Program, 7 CFR Part 205",
       "jurisdiction": "Federal",
       "effectiveDate": "2024-01-01T00:00:00.000Z",
@@ -208,15 +202,9 @@
           "criteria": [
             {
               "id": "arbor-sky-winery-c-7-1",
-              "key": "industry",
+              "key": "attributes.industry",
               "operator": "=",
               "value": "winemaking"
-            },
-            {
-              "id": "arbor-sky-winery-c-7-2",
-              "key": "hasOrganicCertification",
-              "operator": "=",
-              "value": true
             }
           ]
         }
@@ -226,9 +214,9 @@
     },
     {
       "id": "arbor-sky-winery-rule-8",
-      "title": "California Sustainable Winegrowing Alliance (CSWA) Certification",
-      "shortDescription": "Winemakers seeking CSWA certification must meet established criteria for sustainable practices in vineyard and winery operations, undergo self-assessments, and participate in educational workshops",
-      "fullText": "California Sustainable Winegrowing Alliance (CSWA) Certification: Winemakers seeking CSWA certification must meet established criteria for sustainable practices in vineyard and winery operations, undergo self-assessments, and participate in educational workshops",
+      "title": "California Sustainable Winegrowing Alliance (CSWA) Standards",
+      "shortDescription": "California winemakers must follow sustainable winegrowing practices, including water conservation, pest management, and energy efficiency in vineyard and winery operations",
+      "fullText": "California Sustainable Winegrowing Alliance (CSWA) Standards: California winemakers must follow sustainable winegrowing practices, including water conservation, pest management, and energy efficiency in vineyard and winery operations",
       "source": "CSWA",
       "jurisdiction": "CA",
       "effectiveDate": "2024-01-01T00:00:00.000Z",
@@ -240,15 +228,9 @@
           "criteria": [
             {
               "id": "arbor-sky-winery-c-8-1",
-              "key": "locations",
-              "operator": "CONTAINS",
-              "value": "CA"
-            },
-            {
-              "id": "arbor-sky-winery-c-8-2",
-              "key": "hasCSWACertification",
+              "key": "locations.state",
               "operator": "=",
-              "value": true
+              "value": "CA"
             }
           ]
         }
@@ -272,15 +254,9 @@
           "criteria": [
             {
               "id": "arbor-sky-winery-c-9-1",
-              "key": "counties",
+              "key": "attributes.counties",
               "operator": "CONTAINS",
               "value": "Sonoma"
-            },
-            {
-              "id": "arbor-sky-winery-c-9-2",
-              "key": "hasWaterConservationMeasures",
-              "operator": "=",
-              "value": true
             }
           ]
         }
@@ -304,7 +280,7 @@
           "criteria": [
             {
               "id": "arbor-sky-winery-c-10-1",
-              "key": "counties",
+              "key": "attributes.counties",
               "operator": "CONTAINS",
               "value": "Sonoma"
             },
@@ -336,15 +312,9 @@
           "criteria": [
             {
               "id": "arbor-sky-winery-c-11-1",
-              "key": "numEmployees",
+              "key": "size.numEmployees",
               "operator": ">=",
-              "value": 1
-            },
-            {
-              "id": "arbor-sky-winery-c-11-2",
-              "key": "hasHazardCommunicationProgram",
-              "operator": "=",
-              "value": true
+                            "value": 1
             }
           ]
         }
@@ -368,21 +338,15 @@
           "criteria": [
             {
               "id": "arbor-sky-winery-c-12-1",
-              "key": "locations",
-              "operator": "CONTAINS",
+              "key": "locations.state",
+              "operator": "=",
               "value": "CA"
             },
             {
               "id": "arbor-sky-winery-c-12-2",
-              "key": "numEmployees",
+              "key": "size.numEmployees",
               "operator": ">=",
-              "value": 1
-            },
-            {
-              "id": "arbor-sky-winery-c-12-3",
-              "key": "hasIIPP",
-              "operator": "=",
-              "value": true
+                            "value": 1
             }
           ]
         }
@@ -406,7 +370,7 @@
           "criteria": [
             {
               "id": "arbor-sky-winery-c-13-1",
-              "key": "numEmployees",
+              "key": "size.numEmployees",
               "operator": ">=",
               "value": 50
             },
@@ -438,13 +402,13 @@
           "criteria": [
             {
               "id": "arbor-sky-winery-c-14-1",
-              "key": "locations",
-              "operator": "CONTAINS",
+              "key": "locations.state",
+              "operator": "=",
               "value": "CA"
             },
             {
               "id": "arbor-sky-winery-c-14-2",
-              "key": "numEmployees",
+              "key": "size.numEmployees",
               "operator": ">=",
               "value": 5
             },
@@ -476,8 +440,8 @@
           "criteria": [
             {
               "id": "arbor-sky-winery-c-15-1",
-              "key": "locations",
-              "operator": "CONTAINS",
+              "key": "locations.state",
+              "operator": "=",
               "value": "CA"
             },
             {
@@ -508,13 +472,13 @@
           "criteria": [
             {
               "id": "arbor-sky-winery-c-16-1",
-              "key": "locations",
-              "operator": "CONTAINS",
+              "key": "locations.state",
+              "operator": "=",
               "value": "CA"
             },
             {
               "id": "arbor-sky-winery-c-16-2",
-              "key": "numEmployees",
+              "key": "size.numEmployees",
               "operator": ">=",
               "value": 1
             },
@@ -532,9 +496,9 @@
     },
     {
       "id": "arbor-sky-winery-rule-17",
-      "title": "Americans with Disabilities Act (ADA)",
-      "shortDescription": "Businesses must make reasonable accommodations for individuals with disabilities unless doing so would cause undue hardship",
-      "fullText": "Americans with Disabilities Act (ADA) (42 U.S.C. §12101 et seq.): Businesses must make reasonable accommodations for individuals with disabilities unless doing so would cause undue hardship",
+      "title": "Americans with Disabilities Act (ADA) - Large Employer Requirements",
+      "shortDescription": "Employers with 15 or more employees must comply with ADA requirements, including making reasonable accommodations for individuals with disabilities and ensuring equal employment opportunities",
+      "fullText": "Americans with Disabilities Act (ADA) (42 U.S.C. §12101 et seq.): Employers with 15 or more employees must comply with ADA requirements, including making reasonable accommodations for individuals with disabilities and ensuring equal employment opportunities",
       "source": "42 U.S.C. §12101 et seq.",
       "jurisdiction": "Federal",
       "effectiveDate": "2024-01-01T00:00:00.000Z",
@@ -546,15 +510,9 @@
           "criteria": [
             {
               "id": "arbor-sky-winery-c-17-1",
-              "key": "numEmployees",
+              "key": "size.numEmployees",
               "operator": ">=",
               "value": 15
-            },
-            {
-              "id": "arbor-sky-winery-c-17-2",
-              "key": "hasADACompliance",
-              "operator": "=",
-              "value": true
             }
           ]
         }
@@ -564,9 +522,9 @@
     },
     {
       "id": "arbor-sky-winery-rule-18",
-      "title": "California Consumer Privacy Act (CCPA)",
-      "shortDescription": "Businesses that collect personal information from California residents and meet criteria such as having annual gross revenues of $25 million or more must comply with consumer privacy rights",
-      "fullText": "California Consumer Privacy Act (CCPA) (Cal. Civ. Code §1798.100 et seq.): Businesses that collect personal information from California residents and meet criteria such as having annual gross revenues of $25 million or more must comply with consumer privacy rights",
+      "title": "California Consumer Privacy Act (CCPA) - Small Business Compliance",
+      "shortDescription": "California businesses with annual revenues of $5 million or more that collect personal information from California residents must comply with consumer privacy rights, including providing notice and honoring consumer requests",
+      "fullText": "California Consumer Privacy Act (CCPA) (Cal. Civ. Code §1798.100 et seq.): California businesses with annual revenues of $5 million or more that collect personal information from California residents must comply with consumer privacy rights, including providing notice and honoring consumer requests",
       "source": "Cal. Civ. Code §1798.100 et seq.",
       "jurisdiction": "CA",
       "effectiveDate": "2024-01-01T00:00:00.000Z",
@@ -578,15 +536,15 @@
           "criteria": [
             {
               "id": "arbor-sky-winery-c-18-1",
-              "key": "locations",
-              "operator": "CONTAINS",
+              "key": "locations.state",
+              "operator": "=",
               "value": "CA"
             },
             {
               "id": "arbor-sky-winery-c-18-2",
-              "key": "annualRevenue",
-              "operator": ">=",
-              "value": 25000000
+              "key": "revenue",
+              "operator": "CURRENCY_GTE",
+              "value": { "amount": 5000000, "currency": "USD" }
             },
             {
               "id": "arbor-sky-winery-c-18-3",
