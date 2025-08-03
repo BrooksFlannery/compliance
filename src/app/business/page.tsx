@@ -213,72 +213,10 @@ export default function BusinessPage() {
                 />
               </div>
 
+              {/* Business Attributes */}
               <div style={{ marginBottom: '20px' }}>
                 <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '5px' }}>
-                  Activities
-                </label>
-                <input
-                  type="text"
-                  value={selectedBusiness.activities?.activities?.join(', ') || 'Not specified'}
-                  readOnly
-                  style={{
-                    width: '100%',
-                    padding: '8px',
-                    border: '1px solid #ddd',
-                    borderRadius: '4px',
-                    backgroundColor: '#f9f9f9'
-                  }}
-                />
-              </div>
-
-              <div style={{ marginBottom: '20px' }}>
-                <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '5px' }}>
-                  Products
-                </label>
-                <input
-                  type="text"
-                  value={selectedBusiness.products?.products?.join(', ') || 'Not specified'}
-                  readOnly
-                  style={{
-                    width: '100%',
-                    padding: '8px',
-                    border: '1px solid #ddd',
-                    borderRadius: '4px',
-                    backgroundColor: '#f9f9f9'
-                  }}
-                />
-              </div>
-
-              {/* Business Flags */}
-              <div style={{ marginBottom: '20px' }}>
-                <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '5px' }}>
-                  Business Flags
-                </label>
-                <div style={{
-                  padding: '10px',
-                  border: '1px solid #ddd',
-                  borderRadius: '4px',
-                  backgroundColor: '#f9f9f9',
-                  fontSize: '14px',
-                  lineHeight: '1.5'
-                }}>
-                  {selectedBusiness.flags ? 
-                    Object.entries(selectedBusiness.flags)
-                      .filter(([_, value]) => value === true)
-                      .map(([key, value]) => (
-                        <div key={key} style={{ marginBottom: '5px' }}>
-                          <strong>{key}:</strong> {String(value)}
-                        </div>
-                      ))
-                    : 'No flags set'
-                  }
-                </div>
-              </div>
-
-              {/* Additional Attributes */}
-              <div style={{ marginBottom: '20px' }}>
-                <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '5px' }}>
-                  Additional Attributes
+                  Business Attributes
                 </label>
                 <div style={{
                   padding: '10px',
@@ -292,10 +230,10 @@ export default function BusinessPage() {
                     Object.entries(selectedBusiness.attributes)
                       .map(([key, value]) => (
                         <div key={key} style={{ marginBottom: '5px' }}>
-                          <strong>{key}:</strong> {JSON.stringify(value)}
+                          <strong>{key}:</strong> {Array.isArray(value) ? value.join(', ') : JSON.stringify(value)}
                         </div>
                       ))
-                    : 'No additional attributes'
+                    : 'No attributes specified'
                   }
                 </div>
               </div>

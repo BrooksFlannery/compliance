@@ -31,24 +31,6 @@
     "naics": "111998",
     "sic": "0111"
   },
-  "activities": {
-    "activities": [
-      "agricultural_production",
-      "food_processing",
-      "international_trade",
-      "employs_minors",
-      "handles_chemicals",
-      "food_supply_chain"
-    ]
-  },
-  "products": {
-    "products": [
-      "HS:1001.90",
-      "HS:1005.90",
-      "HS:1201.00",
-      "HS:1507.10"
-    ]
-  },
   "size": {
     "numEmployees": 325000,
     "sbaSizeStandard": "Large Business",
@@ -57,13 +39,13 @@
   "type": {
     "businessType": "Corporation"
   },
-  "flags": {
+  "attributes": {
+    "activities": ["agricultural_production", "food_processing", "international_trade", "employs_minors", "handles_chemicals", "food_supply_chain"],
+    "products": ["HS:1001.90", "HS:1005.90", "HS:1201.00", "HS:1507.10"],
     "hasAgriculturalOperations": true,
     "foodSupplyChain": true,
     "internationalOperations": true,
-    "largeEnterprise": true
-  },
-  "attributes": {
+    "largeEnterprise": true,
     "cropTypes": ["wheat", "corn", "soybeans", "sunflower"],
     "livestockTypes": ["cattle", "poultry"],
     "processingFacilities": 45,

@@ -48,9 +48,9 @@
           "criteria": [
             {
               "id": "arbor-sky-winery-c-2-1",
-              "key": "attributes.industry",
-              "operator": "=",
-              "value": "winemaking"
+              "key": "industry.name",
+              "operator": "CONTAINS",
+              "value": "Winemaking"
             },
             {
               "id": "arbor-sky-winery-c-2-2",
@@ -118,9 +118,9 @@
             },
             {
               "id": "arbor-sky-winery-c-4-2",
-              "key": "attributes.industry",
-              "operator": "=",
-              "value": "winemaking"
+              "key": "industry.name",
+              "operator": "CONTAINS",
+              "value": "Winemaking"
             }
           ]
         }
@@ -176,9 +176,9 @@
           "criteria": [
             {
               "id": "arbor-sky-winery-c-6-1",
-              "key": "attributes.industry",
-              "operator": "=",
-              "value": "winemaking"
+              "key": "industry.name",
+              "operator": "CONTAINS",
+              "value": "Winemaking"
             }
           ]
         }
@@ -202,9 +202,9 @@
           "criteria": [
             {
               "id": "arbor-sky-winery-c-7-1",
-              "key": "attributes.industry",
-              "operator": "=",
-              "value": "winemaking"
+              "key": "industry.name",
+              "operator": "CONTAINS",
+              "value": "Winemaking"
             }
           ]
         }

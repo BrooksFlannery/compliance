@@ -12,7 +12,7 @@
         "id": "cg_1",
         "operator": "AND",
         "criteria": [
-          { "id": "c_1", "key": "flags.foodSupplyChain", "operator": "=", "value": true },
+          { "id": "c_1", "key": "attributes.foodSupplyChain", "operator": "=", "value": true },
           { "id": "c_2", "key": "revenue", "operator": "CURRENCY_GTE", "value": { "amount": 500000, "currency": "USD" } }
         ]
       }
@@ -31,8 +31,8 @@
         "id": "cg_2",
         "operator": "AND",
         "criteria": [
-          { "id": "c_3", "key": "flags.hasAgriculturalOperations", "operator": "=", "value": true },
-          { "id": "c_4", "key": "flags.internationalOperations", "operator": "=", "value": true }
+          { "id": "c_3", "key": "attributes.hasAgriculturalOperations", "operator": "=", "value": true },
+          { "id": "c_4", "key": "attributes.internationalOperations", "operator": "=", "value": true }
         ]
       }
     ]
@@ -70,7 +70,7 @@
         "criteria": [
           { "id": "c_6", "key": "locations.country", "operator": "=", "value": "US" },
           { "id": "c_7", "key": "locations.state", "operator": "=", "value": "IA" },
-          { "id": "c_8", "key": "flags.hasAgriculturalOperations", "operator": "=", "value": true }
+          { "id": "c_8", "key": "attributes.hasAgriculturalOperations", "operator": "=", "value": true }
         ]
       }
     ]
@@ -88,7 +88,7 @@
         "id": "cg_5",
         "operator": "AND",
         "criteria": [
-          { "id": "c_9", "key": "flags.hasAgriculturalOperations", "operator": "=", "value": true }
+          { "id": "c_9", "key": "attributes.hasAgriculturalOperations", "operator": "=", "value": true }
         ]
       }
     ]
@@ -148,7 +148,7 @@
         "criteria": [
           { "id": "c_16", "key": "locations.country", "operator": "=", "value": "ZA" },
           { "id": "c_17", "key": "locations.province", "operator": "=", "value": "Gauteng" },
-          { "id": "c_18", "key": "flags.foodSupplyChain", "operator": "=", "value": true }
+          { "id": "c_18", "key": "attributes.foodSupplyChain", "operator": "=", "value": true }
         ]
       }
     ]
@@ -208,7 +208,7 @@
         "criteria": [
           { "id": "c_25", "key": "locations.country", "operator": "=", "value": "AR" },
           { "id": "c_26", "key": "locations.province", "operator": "=", "value": "Buenos Aires" },
-          { "id": "c_27", "key": "flags.hasAgriculturalOperations", "operator": "=", "value": true }
+          { "id": "c_27", "key": "attributes.hasAgriculturalOperations", "operator": "=", "value": true }
         ]
       }
     ]
@@ -228,7 +228,7 @@
         "criteria": [
           { "id": "c_28", "key": "locations.country", "operator": "=", "value": "AR" },
           { "id": "c_29", "key": "locations.province", "operator": "=", "value": "Buenos Aires" },
-          { "id": "c_30", "key": "flags.hasAgriculturalOperations", "operator": "=", "value": true }
+          { "id": "c_30", "key": "attributes.hasAgriculturalOperations", "operator": "=", "value": true }
         ]
       }
     ]
@@ -268,7 +268,7 @@
         "criteria": [
           { "id": "c_34", "key": "locations.country", "operator": "=", "value": "AR" },
           { "id": "c_35", "key": "locations.province", "operator": "=", "value": "Buenos Aires" },
-          { "id": "c_36", "key": "flags.foodSupplyChain", "operator": "=", "value": true }
+          { "id": "c_36", "key": "attributes.foodSupplyChain", "operator": "=", "value": true }
         ]
       }
     ]
@@ -286,7 +286,7 @@
         "id": "cg_15",
         "operator": "AND",
         "criteria": [
-          { "id": "c_37", "key": "flags.foodSupplyChain", "operator": "=", "value": true }
+          { "id": "c_37", "key": "attributes.foodSupplyChain", "operator": "=", "value": true }
         ]
       }
     ]
@@ -304,8 +304,8 @@
         "id": "cg_16",
         "operator": "AND",
         "criteria": [
-          { "id": "c_38", "key": "flags.hasAgriculturalOperations", "operator": "=", "value": true },
-          { "id": "c_39", "key": "flags.internationalOperations", "operator": "=", "value": true }
+          { "id": "c_38", "key": "attributes.hasAgriculturalOperations", "operator": "=", "value": true },
+          { "id": "c_39", "key": "attributes.internationalOperations", "operator": "=", "value": true }
         ]
       }
     ]
@@ -323,8 +323,8 @@
         "id": "cg_17",
         "operator": "AND",
         "criteria": [
-          { "id": "c_40", "key": "flags.hasAgriculturalOperations", "operator": "=", "value": true },
-          { "id": "c_41", "key": "flags.internationalOperations", "operator": "=", "value": true }
+          { "id": "c_40", "key": "attributes.hasAgriculturalOperations", "operator": "=", "value": true },
+          { "id": "c_41", "key": "attributes.internationalOperations", "operator": "=", "value": true }
         ]
       }
     ]
@@ -342,8 +342,8 @@
         "id": "cg_18",
         "operator": "AND",
         "criteria": [
-          { "id": "c_42", "key": "flags.largeEnterprise", "operator": "=", "value": true },
-          { "id": "c_43", "key": "flags.internationalOperations", "operator": "=", "value": true }
+          { "id": "c_42", "key": "attributes.largeEnterprise", "operator": "=", "value": true },
+          { "id": "c_43", "key": "attributes.internationalOperations", "operator": "=", "value": true }
         ]
       }
     ]
@@ -361,7 +361,7 @@
         "id": "cg_19",
         "operator": "AND",
         "criteria": [
-          { "id": "c_44", "key": "flags.largeEnterprise", "operator": "=", "value": true },
+          { "id": "c_44", "key": "attributes.largeEnterprise", "operator": "=", "value": true },
           { "id": "c_45", "key": "revenue", "operator": "CURRENCY_GTE", "value": { "amount": 100000000, "currency": "USD" } }
         ]
       }

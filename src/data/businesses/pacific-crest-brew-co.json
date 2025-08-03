@@ -1,0 +1,58 @@
+{
+  "id": "pacific-crest-brew-co",
+  "name": "Pacific Crest Brew Co.",
+  "locations": [
+    {
+      "country": "US",
+      "state": "OR",
+      "county": "Deschutes",
+      "city": "Bend",
+      "fullName": "Bend, Deschutes County, OR"
+    }
+  ],
+  "revenue": {
+    "amount": 3800000,
+    "currency": "USD"
+  },
+  "industry": {
+    "name": "Craft Brewing",
+    "naics": "312120",
+    "sic": "2082"
+  },
+  "size": {
+    "numEmployees": 42,
+    "sbaSizeStandard": "Small Business",
+    "chainStatus": "single_location"
+  },
+  "type": {
+    "businessType": "Corporation"
+  },
+  "attributes": {
+    "activities": ["beer_production", "alcohol_manufacturing", "retail_sales", "food_service", "tasting_room"],
+    "products": ["craft_beer", "beer_bottles", "beer_kegs", "merchandise"],
+    "hasAlcoholLicense": true,
+    "hasBreweryLicense": true,
+    "hasTastingRoom": true,
+    "hasRetailSales": true,
+    "hasFoodService": true,
+    "hasOutdoorStorage": true,
+    "hasWastewaterDischarge": true,
+    "hasHazardousMaterials": true,
+    "hasFireSuppression": true,
+    "hasWorkersComp": true,
+    "hasOSHACompliance": true,
+    "hasFLSACompliance": true,
+    "hasEEOCompliance": true,
+    "hasADACompliance": true,
+    "hasOFLACompliance": true,
+    "hasPaidSickLeave": true,
+    "annualProduction": 15000,
+    "productionUnit": "barrels",
+    "wastewaterVolume": 30000,
+    "wastewaterUnit": "gallons_per_day",
+    "oilStorage": 1500,
+    "oilStorageUnit": "gallons"
+  },
+  "createdAt": "2024-01-01T00:00:00.000Z",
+  "updatedAt": "2024-01-01T00:00:00.000Z"
+} 
