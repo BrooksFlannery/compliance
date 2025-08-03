@@ -1,0 +1,246 @@
+[
+  {
+    "id": "rule_1",
+    "title": "Minnesota Minimum Wage",
+    "shortDescription": "As of Jan 1, 2024, Minnesota's minimum wage for small employers (less than $500,000 in annual gross volume) is $10.33/hour. For large employers, it is $14.30/hour.",
+    "categories": ["Labor Law", "State Regulations"],
+    "jurisdiction": "Minnesota - State",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_1",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_1", "key": "locations.country", "operator": "=", "value": "US" },
+          { "id": "c_2", "key": "locations.state", "operator": "=", "value": "MN" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_2",
+    "title": "Occupational Safety and Health Administration (OSHA) Requirement",
+    "shortDescription": "All businesses with 10 or more employees must comply with OSHA's general industry standards, including maintaining an Injury and Illness Prevention Program (IIPP) and reporting incidents within 8 hours if it results in a fatality.",
+    "categories": ["Workplace Safety", "Federal Regulations"],
+    "jurisdiction": "United States - Federal",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_2",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_3", "key": "size.numEmployees", "operator": ">=", "value": 10 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_3",
+    "title": "Food Safety Modernization Act (FSMA) Compliance",
+    "shortDescription": "Businesses that manufacture, process, pack, or hold food must comply with FSMA's preventive controls for human food, including implementing a food safety plan and conducting a hazard analysis.",
+    "categories": ["Food Safety", "Federal Regulations"],
+    "jurisdiction": "United States - Federal",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_3",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_4", "key": "attributes.activities", "operator": "CONTAINS", "value": "food_manufacturing" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_4",
+    "title": "Minnesota Workers' Compensation",
+    "shortDescription": "All employers are required to carry workers' compensation insurance to cover medical costs and lost wages for employees who are injured on the job.",
+    "categories": ["Insurance", "State Regulations"],
+    "jurisdiction": "Minnesota - State",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_4",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_5", "key": "locations.country", "operator": "=", "value": "US" },
+          { "id": "c_6", "key": "locations.state", "operator": "=", "value": "MN" },
+          { "id": "c_7", "key": "size.numEmployees", "operator": ">=", "value": 1 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_5",
+    "title": "Americans with Disabilities Act (ADA) Compliance",
+    "shortDescription": "Businesses with 15 or more employees must provide reasonable accommodations to employees with disabilities and ensure facilities are accessible to customers.",
+    "categories": ["Labor Law", "Federal Regulations"],
+    "jurisdiction": "United States - Federal",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_5",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_8", "key": "size.numEmployees", "operator": ">=", "value": 15 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_6",
+    "title": "Hazard Communication Standard (HCS)",
+    "shortDescription": "Employers must ensure that information about chemical hazards is communicated to employees through a comprehensive hazard communication program, including labeling, safety data sheets, and training.",
+    "categories": ["Workplace Safety", "Federal Regulations"],
+    "jurisdiction": "United States - Federal",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_6",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_9", "key": "attributes.hasHazardCommunication", "operator": "=", "value": true }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_7",
+    "title": "Minnesota Parental Leave Laws",
+    "shortDescription": "Employers with 21 or more employees at one site must provide up to 12 weeks of unpaid leave for the birth or adoption of a child.",
+    "categories": ["Labor Law", "State Regulations"],
+    "jurisdiction": "Minnesota - State",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_7",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_10", "key": "locations.country", "operator": "=", "value": "US" },
+          { "id": "c_11", "key": "locations.state", "operator": "=", "value": "MN" },
+          { "id": "c_12", "key": "size.numEmployees", "operator": ">=", "value": 21 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_8",
+    "title": "Fair Labor Standards Act (FLSA) Overtime",
+    "shortDescription": "Requires employers to pay non-exempt employees one and a half times their regular rate for hours worked over 40 in a workweek.",
+    "categories": ["Labor Law", "Federal Regulations"],
+    "jurisdiction": "United States - Federal",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_8",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_13", "key": "size.numEmployees", "operator": ">=", "value": 1 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_9",
+    "title": "Food Handler Certification",
+    "shortDescription": "Staff responsible for food preparation must receive food safety training and obtain certification proving knowledge in safe food handling practices.",
+    "categories": ["Food Safety", "State Regulations"],
+    "jurisdiction": "Minnesota - State",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_9",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_14", "key": "locations.country", "operator": "=", "value": "US" },
+          { "id": "c_15", "key": "locations.state", "operator": "=", "value": "MN" },
+          { "id": "c_16", "key": "attributes.hasFoodHandlerCertification", "operator": "=", "value": true }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_10",
+    "title": "Minnesota Health Department Food License",
+    "shortDescription": "Establishments must obtain a food establishment license from the Minnesota Department of Health, renewed annually, to legally operate.",
+    "categories": ["Food Safety", "State Regulations"],
+    "jurisdiction": "Minnesota - State",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_10",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_17", "key": "locations.country", "operator": "=", "value": "US" },
+          { "id": "c_18", "key": "locations.state", "operator": "=", "value": "MN" },
+          { "id": "c_19", "key": "attributes.hasFoodLicense", "operator": "=", "value": true }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_11",
+    "title": "Paid Sick Leave",
+    "shortDescription": "Employers with 6 or more employees must provide paid sick leave, accruing at 1 hour per 30 hours worked, up to 48 hours per year.",
+    "categories": ["Labor Law", "Local Regulations"],
+    "jurisdiction": "Minneapolis - Local",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_11",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_20", "key": "locations.city", "operator": "=", "value": "Minneapolis" },
+          { "id": "c_21", "key": "size.numEmployees", "operator": ">=", "value": 6 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_12",
+    "title": "Equal Employment Opportunity Commission (EEOC) Compliance",
+    "shortDescription": "Prohibits discrimination in hiring, promotion, or any employment practices based on race, color, religion, sex, national origin, or disability.",
+    "categories": ["Labor Law", "Federal Regulations"],
+    "jurisdiction": "United States - Federal",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_12",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_22", "key": "size.numEmployees", "operator": ">=", "value": 15 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_13",
+    "title": "FDA Food Facility Registration",
+    "shortDescription": "Facilities that manufacture/process, pack, or hold food for consumption in the U.S. must register with the FDA and renew every two years.",
+    "categories": ["Food Safety", "Federal Regulations"],
+    "jurisdiction": "United States - Federal",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_13",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_23", "key": "attributes.hasFDAFacilityRegistration", "operator": "=", "value": true }
+        ]
+      }
+    ]
+  }
+] 

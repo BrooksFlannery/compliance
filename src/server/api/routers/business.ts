@@ -2,7 +2,7 @@ import { z } from "zod";
 import { createTRPCRouter, publicProcedure } from "../trpc";
 import { TRPCError } from "@trpc/server";
 import { BusinessSchema, GetBusinessInputSchema, GetBusinessRulesInputSchema, RuleSchema } from "../../../lib/schemas";
-import { evaluateRulesForBusiness } from "../../../lib/rule-engine";
+import { evaluateRulesForBusiness, evaluateAllRulesForBusiness } from "../../../lib/rule-engine";
 import { getAllBusinesses, getBusiness, getAllRules } from "../../../lib/storage";
 
 export const businessRouter = createTRPCRouter({
@@ -60,11 +60,34 @@ export const businessRouter = createTRPCRouter({
         const allRules = getAllRules();
         console.log('Total rules in storage:', allRules.length);
         
-        const rules = evaluateRulesForBusiness(business);
+        // Use cross-business rule evaluation to show all applicable rules
+        const rules = evaluateAllRulesForBusiness(business);
         console.log('getBusinessRules result:', rules.length, 'rules for', business.name);
         return rules;
       } catch (error) {
         console.error('getBusinessRules error:', error);
+        throw error;
+      }
+    }),
+
+  getBusinessSpecificRules: publicProcedure
+    .input(GetBusinessRulesInputSchema)
+    .output(z.array(RuleSchema))
+    .query(({ input }) => {
+      try {
+        console.log('getBusinessSpecificRules called with businessId:', input.businessId);
+        const business = getBusiness(input.businessId);
+        if (!business) {
+          console.log('Business not found for rules:', input.businessId);
+          throw new TRPCError({ code: 'NOT_FOUND' });
+        }
+        
+        // Use business-specific rule evaluation only
+        const rules = evaluateRulesForBusiness(business);
+        console.log('getBusinessSpecificRules result:', rules.length, 'business-specific rules for', business.name);
+        return rules;
+      } catch (error) {
+        console.error('getBusinessSpecificRules error:', error);
         throw error;
       }
     }),

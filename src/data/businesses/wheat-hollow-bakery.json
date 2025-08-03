@@ -1,0 +1,50 @@
+{
+  "id": "wheat-hollow-bakery",
+  "name": "Wheat & Hollow Bakery",
+  "locations": [
+    {
+      "country": "US",
+      "state": "MN",
+      "county": "Hennepin",
+      "city": "Minneapolis",
+      "fullName": "Minneapolis, Hennepin County, MN"
+    }
+  ],
+  "revenue": {
+    "amount": 2300000,
+    "currency": "USD"
+  },
+  "industry": {
+    "name": "Baked Goods, Wholesale",
+    "naics": "311812",
+    "sic": "2051"
+  },
+  "size": {
+    "numEmployees": 22,
+    "sbaSizeStandard": "Small Business",
+    "chainStatus": "single_location"
+  },
+  "type": {
+    "businessType": "Corporation"
+  },
+  "attributes": {
+    "activities": ["food_manufacturing", "wholesale_sales", "food_preparation", "baking", "food_packaging"],
+    "products": ["bread", "pastries", "cakes", "wholesale_baked_goods"],
+    "hasFoodLicense": true,
+    "hasFoodHandlerCertification": true,
+    "hasFDAFacilityRegistration": true,
+    "hasWorkersComp": true,
+    "hasOSHACompliance": true,
+    "hasFLSACompliance": true,
+    "hasEEOCompliance": true,
+    "hasADACompliance": true,
+    "hasParentalLeave": true,
+    "hasPaidSickLeave": true,
+    "hasHazardCommunication": true,
+    "hasEmergencyPreparedness": true,
+    "foodSafetyPlan": true,
+    "hazardAnalysis": true
+  },
+  "createdAt": "2024-01-01T00:00:00.000Z",
+  "updatedAt": "2024-01-01T00:00:00.000Z"
+} 

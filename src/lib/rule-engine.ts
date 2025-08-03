@@ -12,7 +12,7 @@ function getNestedValue(obj: any, path: string): any {
 const evaluateCriterion = (criterion: Criterion, business: Business): boolean => {
   const { key, operator, value } = criterion;
   
-  // Handle nested paths (e.g., "flags.foodSupplyChain", "size.numEmployees")
+  // Handle nested paths (e.g., "attributes.hasAlcoholLicense", "size.numEmployees")
   let businessValue: any;
   
   // Special handling for revenue field (no dot in key)
@@ -32,14 +32,9 @@ const evaluateCriterion = (criterion: Criterion, business: Business): boolean =>
     // Nested path - check in composable schemas first, then attributes
     businessValue = getNestedValue(business, key);
   } else {
-    // Flat key: check root-level properties first, then flags, then attributes
+    // Flat key: check root-level properties first, then attributes
     // @ts-ignore - dynamic access
     businessValue = (business as any)[key];
-
-    // Check flags if not found
-    if (businessValue === undefined) {
-      businessValue = (business.flags as any)?.[key];
-    }
 
     // Fallback to attributes map
     if (businessValue === undefined) {
@@ -47,8 +42,15 @@ const evaluateCriterion = (criterion: Criterion, business: Business): boolean =>
     }
   }
   
+  const result = compareValues(businessValue, operator, value);
+  
+  // Debug logging for failed criteria
+  if (!result) {
+    console.log(`    ✗ Criterion failed: ${key} ${operator} ${JSON.stringify(value)} (actual: ${JSON.stringify(businessValue)})`);
+  }
+  
   // Use the enhanced comparison function that handles currency-aware operations
-  return compareValues(businessValue, operator, value);
+  return result;
 };
 
 // Evaluate a criteria group (AND/OR logic)
@@ -59,9 +61,15 @@ const evaluateCriteriaGroup = (group: CriteriaGroup, business: Business): boolea
 
   if (group.operator === 'AND') {
     const result = results.every(result => result);
+    if (!result) {
+      console.log(`  ✗ Criteria group failed (AND): ${group.criteria.length} criteria, ${results.filter(r => r).length} passed`);
+    }
     return result;
   } else if (group.operator === 'OR') {
     const result = results.some(result => result);
+    if (!result) {
+      console.log(`  ✗ Criteria group failed (OR): ${group.criteria.length} criteria, ${results.filter(r => r).length} passed`);
+    }
     return result;
   }
 
@@ -82,19 +90,47 @@ const evaluateRuleCriteria = (rule: Rule, business: Business): boolean => {
   return result;
 };
 
-// Main function to evaluate rules for a business
+// Main function to evaluate rules for a business (business-specific rules only)
 export const evaluateRulesForBusiness = (business: Business): Rule[] => {
   const allRules = getAllRules();
   const applicableRules: Rule[] = [];
 
-  console.log(`Evaluating ${allRules.length} rules for business: ${business.name}`);
+  console.log(`Evaluating rules for business: ${business.name} (ID: ${business.id})`);
+
+  // Filter rules to only those that belong to this business
+  const businessRules = allRules.filter(rule => (rule as any).businessId === business.id);
+  console.log(`Found ${businessRules.length} rules specific to ${business.name}`);
+
+  for (const rule of businessRules) {
+    const applies = evaluateRuleCriteria(rule, business);
+    
+    if (applies) {
+      applicableRules.push(rule);
+      console.log(`✓ Rule applies: ${rule.title}`);
+    } else {
+      console.log(`✗ Rule does not apply: ${rule.title}`);
+    }
+  }
+
+  console.log(`Total applicable rules for ${business.name}: ${applicableRules.length}`);
+  return applicableRules;
+};
+
+// New function to evaluate ALL rules against a business (cross-business rule application)
+export const evaluateAllRulesForBusiness = (business: Business): Rule[] => {
+  const allRules = getAllRules();
+  const applicableRules: Rule[] = [];
+
+  console.log(`Evaluating ALL rules for business: ${business.name} (ID: ${business.id})`);
+  console.log(`Total rules in system: ${allRules.length}`);
 
   for (const rule of allRules) {
     const applies = evaluateRuleCriteria(rule, business);
     
     if (applies) {
       applicableRules.push(rule);
-      console.log(`✓ Rule applies: ${rule.title}`);
+      const ruleSource = (rule as any).businessId === business.id ? 'business-specific' : 'cross-business';
+      console.log(`✓ Rule applies (${ruleSource}): ${rule.title}`);
     } else {
       console.log(`✗ Rule does not apply: ${rule.title}`);
     }

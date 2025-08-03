@@ -1,0 +1,288 @@
+[
+  {
+    "id": "rule_1",
+    "title": "Oregon Liquor Control Commission (OLCC) Licensing",
+    "shortDescription": "All businesses manufacturing alcoholic beverages must obtain a Brewery Public House (BPH) license from OLCC.",
+    "categories": ["Alcohol Licensing", "State Regulations"],
+    "jurisdiction": "Oregon - State",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_1",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_1", "key": "locations.country", "operator": "=", "value": "US" },
+          { "id": "c_2", "key": "locations.state", "operator": "=", "value": "OR" },
+          { "id": "c_3", "key": "attributes.hasAlcoholLicense", "operator": "=", "value": true }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_2",
+    "title": "Food Safety Modernization Act (FSMA) Compliance",
+    "shortDescription": "Breweries must comply with FSMA if they sell or export more than 100,000 gallons annually, ensuring a food safety plan is in place.",
+    "categories": ["Food Safety", "Federal Regulations"],
+    "jurisdiction": "United States - Federal",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_2",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_4", "key": "attributes.annualProduction", "operator": ">=", "value": 100000 },
+          { "id": "c_5", "key": "attributes.productionUnit", "operator": "=", "value": "gallons" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_3",
+    "title": "Tied House Laws",
+    "shortDescription": "Prohibits breweries from providing anything of value to retailers to secure sales, applicable to businesses producing more than 2,500 barrels annually.",
+    "categories": ["Alcohol Sales", "Federal Regulations"],
+    "jurisdiction": "United States - Federal",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_3",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_6", "key": "attributes.annualProduction", "operator": ">=", "value": 2500 },
+          { "id": "c_7", "key": "attributes.productionUnit", "operator": "=", "value": "barrels" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_4",
+    "title": "Oregon Minimum Wage Requirements",
+    "shortDescription": "Effective July 1, 2023, minimum wage for employees in Deschutes County (location of Bend) is $14.20 per hour.",
+    "categories": ["Labor Law", "State Regulations"],
+    "jurisdiction": "Oregon - State",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_4",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_8", "key": "locations.country", "operator": "=", "value": "US" },
+          { "id": "c_9", "key": "locations.state", "operator": "=", "value": "OR" },
+          { "id": "c_10", "key": "locations.county", "operator": "=", "value": "Deschutes" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_5",
+    "title": "Federal Overtime Rules",
+    "shortDescription": "Non-exempt employees must receive overtime pay at one and a half times their regular rate for hours worked over 40 in a workweek.",
+    "categories": ["Labor Law", "Federal Regulations"],
+    "jurisdiction": "United States - Federal",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_5",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_11", "key": "size.numEmployees", "operator": ">=", "value": 1 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_6",
+    "title": "Occupational Safety and Health Standards",
+    "shortDescription": "Employers with 10 or more employees must maintain a safe work environment; includes training, hazard communication, and injury logging.",
+    "categories": ["Workplace Safety", "Federal Regulations"],
+    "jurisdiction": "United States - Federal",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_6",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_12", "key": "size.numEmployees", "operator": ">=", "value": 10 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_7",
+    "title": "Fire Code Compliance",
+    "shortDescription": "Breweries storing more than 100 gallons of flammable liquid must adhere to NFPA fire code standards.",
+    "categories": ["Fire Safety", "Federal Regulations"],
+    "jurisdiction": "United States - Federal",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_7",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_13", "key": "attributes.oilStorage", "operator": ">=", "value": 100 },
+          { "id": "c_14", "key": "attributes.oilStorageUnit", "operator": "=", "value": "gallons" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_8",
+    "title": "Wastewater Discharge Permit",
+    "shortDescription": "Businesses discharging more than 25,000 gallons per day into municipal sewers must have a discharge permit from the City of Bend.",
+    "categories": ["Environmental Compliance", "Local Regulations"],
+    "jurisdiction": "Bend - Local",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_8",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_15", "key": "locations.city", "operator": "=", "value": "Bend" },
+          { "id": "c_16", "key": "attributes.wastewaterVolume", "operator": ">=", "value": 25000 },
+          { "id": "c_17", "key": "attributes.wastewaterUnit", "operator": "=", "value": "gallons_per_day" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_9",
+    "title": "Oregon Family Leave Act (OFLA)",
+    "shortDescription": "Employers with 25 or more employees must provide up to 12 weeks of unpaid family leave to eligible employees.",
+    "categories": ["Labor Law", "State Regulations"],
+    "jurisdiction": "Oregon - State",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_9",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_18", "key": "locations.country", "operator": "=", "value": "US" },
+          { "id": "c_19", "key": "locations.state", "operator": "=", "value": "OR" },
+          { "id": "c_20", "key": "size.numEmployees", "operator": ">=", "value": 25 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_10",
+    "title": "Equal Employment Opportunity (EEO) Compliance",
+    "shortDescription": "Employers with more than 15 employees must adhere to federal EEO laws prohibiting discrimination based on race, color, religion, sex, or national origin.",
+    "categories": ["Labor Law", "Federal Regulations"],
+    "jurisdiction": "United States - Federal",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_10",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_21", "key": "size.numEmployees", "operator": ">=", "value": 15 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_11",
+    "title": "Hazardous Material Handling",
+    "shortDescription": "Employers must maintain a written hazard communication program for handling materials like cleaning chemicals.",
+    "categories": ["Workplace Safety", "Federal Regulations"],
+    "jurisdiction": "United States - Federal",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_11",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_22", "key": "attributes.hasHazardousMaterials", "operator": "=", "value": true }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_12",
+    "title": "TTB Labeling Regulations",
+    "shortDescription": "Beer labels must comply with TTB regulations, including ingredient listing and alcohol content for businesses producing over 10,000 barrels.",
+    "categories": ["Alcohol Labeling", "Federal Regulations"],
+    "jurisdiction": "United States - Federal",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_12",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_23", "key": "attributes.annualProduction", "operator": ">=", "value": 10000 },
+          { "id": "c_24", "key": "attributes.productionUnit", "operator": "=", "value": "barrels" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_13",
+    "title": "Workers' Compensation Insurance",
+    "shortDescription": "All Oregon employers with one or more employees must carry workers' compensation insurance.",
+    "categories": ["Insurance", "State Regulations"],
+    "jurisdiction": "Oregon - State",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_13",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_25", "key": "locations.country", "operator": "=", "value": "US" },
+          { "id": "c_26", "key": "locations.state", "operator": "=", "value": "OR" },
+          { "id": "c_27", "key": "size.numEmployees", "operator": ">=", "value": 1 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_14",
+    "title": "Americans with Disabilities Act (ADA) Compliance",
+    "shortDescription": "Employers with 15 or more employees must provide reasonable accommodations for employees with disabilities.",
+    "categories": ["Labor Law", "Federal Regulations"],
+    "jurisdiction": "United States - Federal",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_14",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_28", "key": "size.numEmployees", "operator": ">=", "value": 15 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_15",
+    "title": "Oregon Paid Sick Time Law",
+    "shortDescription": "Employers with more than 10 employees must provide paid sick leave at the rate of one hour per 30 hours worked.",
+    "categories": ["Labor Law", "State Regulations"],
+    "jurisdiction": "Oregon - State",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_15",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_29", "key": "locations.country", "operator": "=", "value": "US" },
+          { "id": "c_30", "key": "locations.state", "operator": "=", "value": "OR" },
+          { "id": "c_31", "key": "size.numEmployees", "operator": ">=", "value": 10 }
+        ]
+      }
+    ]
+  }
+] 

@@ -6,14 +6,14 @@ export const AnnualRevenueSchema = z.object({
   currency: z.string(),
 });
 
-export const IndustrySchema = z.object({//im pretty happy with this type of schema
+export const IndustrySchema = z.object({
   name: z.string(),
   // Industry classification codes used by regulations
   naics: z.string().optional(),
   sic: z.string().optional(),
 });
 
-export const LocationSchema = z.object({//im pretty happy with this type of schema
+export const LocationSchema = z.object({
   country: z.string(),
   state: z.string().optional(),
   province: z.string().optional(),
@@ -22,25 +22,15 @@ export const LocationSchema = z.object({//im pretty happy with this type of sche
   fullName: z.string().optional(),
 });
 
-export const ActivitiesSchema = z.object({//this seems to have a lot of overlap with buisness flags, which also has overlap with attributes?
-  activities: z.array(z.string()),
-});
-
-export const ProductsSchema = z.object({//probably need more specific schema for this, like product codes? im sure that exists in many forms
-  products: z.array(z.string()),
-});
-
-export const BusinessSizeSchema = z.object({//im pretty happy with this type of schema
+export const BusinessSizeSchema = z.object({
   numEmployees: z.number().optional(),
   sbaSizeStandard: z.enum(['Small Business', 'Large Business']).optional(),
   chainStatus: z.enum(['independent', 'franchise', 'large_chain', 'single_location']).optional(),
 });
 
-export const BusinessTypeSchema = z.object({//im pretty happy with this type of schema
+export const BusinessTypeSchema = z.object({
   businessType: z.enum(['LLC', 'Corporation', 'Partnership', 'Sole Proprietorship']).optional(),
 });
-
-export const BusinessFlagsSchema = z.record(z.boolean().optional()); // Allow any boolean fields
 
 // User schema
 export const UserSchema = z.object({
@@ -51,31 +41,26 @@ export const UserSchema = z.object({
   updatedAt: z.date(),
 });
 
-// Core business schema with composable parts
+// Core business schema with simplified structure
 export const BusinessSchema = z.object({
   id: z.string(),
   name: z.string(),
   locations: z.array(LocationSchema),
   
-  // Composable schemas - all optional
+  // Core structured schemas - all optional
   revenue: AnnualRevenueSchema.optional(),
   industry: IndustrySchema.optional(),
-  activities: ActivitiesSchema.optional(),
-  products: ProductsSchema.optional(),
   size: BusinessSizeSchema.optional(),
   type: BusinessTypeSchema.optional(),
-  flags: BusinessFlagsSchema.optional(),
   
-  // Flexible attributes for anything else
+  // Flexible attributes for everything else (activities, flags, products, etc.)
   attributes: z.record(z.any()).optional(),
   
   createdAt: z.date(),
   updatedAt: z.date(),
 });
 
-
-
-// Criterion schema
+// Criterion schema - updated to support new operators
 export const CriterionSchema = z.object({
   id: z.string(),
   key: z.string(),
@@ -105,6 +90,7 @@ export const RuleSchema = z.object({
   retiredDate: z.date().optional(),
   categories: z.array(z.string()),
   criteriaGroups: z.array(CriteriaGroupSchema),
+  businessId: z.string().optional(), // Optional for backward compatibility
   createdAt: z.date(),
   updatedAt: z.date(),
 });
@@ -123,11 +109,8 @@ export const CreateBusinessInputSchema = z.object({
   locations: z.array(LocationSchema),
   revenue: AnnualRevenueSchema.optional(),
   industry: IndustrySchema.optional(),
-  activities: ActivitiesSchema.optional(),
-  products: ProductsSchema.optional(),
   size: BusinessSizeSchema.optional(),
   type: BusinessTypeSchema.optional(),
-  flags: BusinessFlagsSchema.optional(),
   attributes: z.record(z.any()).optional(),
 });
 
@@ -142,8 +125,5 @@ export type CriteriaGroup = z.infer<typeof CriteriaGroupSchema>;
 export type AnnualRevenue = z.infer<typeof AnnualRevenueSchema>;
 export type Industry = z.infer<typeof IndustrySchema>;
 export type Location = z.infer<typeof LocationSchema>;
-export type Activities = z.infer<typeof ActivitiesSchema>;
-export type Products = z.infer<typeof ProductsSchema>;
 export type BusinessSize = z.infer<typeof BusinessSizeSchema>;
-export type BusinessType = z.infer<typeof BusinessTypeSchema>;
-export type BusinessFlags = z.infer<typeof BusinessFlagsSchema>; 
+export type BusinessType = z.infer<typeof BusinessTypeSchema>; 

@@ -75,6 +75,9 @@ export const loadRuleData = (): void => {
         const fileContent = fs.readFileSync(filePath, 'utf-8');
         const rulesData = JSON.parse(fileContent);
         
+        // Extract business ID from filename (e.g., "pacific-crest-brew-co-rules.json" -> "pacific-crest-brew-co")
+        const businessId = file.replace('-rules.json', '');
+        
         // Handle different rule file structures
         let rules: any[] = [];
         if (Array.isArray(rulesData)) {
@@ -105,14 +108,20 @@ export const loadRuleData = (): void => {
               return;
             }
             
-            addRule(validation.data);
+            // Add business ID to the rule for filtering
+            const ruleWithBusinessId = {
+              ...validation.data,
+              businessId: businessId
+            };
+            
+            addRule(ruleWithBusinessId);
             validRulesCount++;
           } catch (error) {
             console.error(`Error processing rule ${index} in ${file}:`, error);
           }
         });
         
-        console.log(`Loaded ${validRulesCount} valid rules from ${file}`);
+        console.log(`Loaded ${validRulesCount} valid rules from ${file} for business: ${businessId}`);
         if (validRulesCount === 0) {
           console.log(`No valid rules loaded from ${file} - checking structure:`, JSON.stringify(rulesData, null, 2).substring(0, 500));
         }
