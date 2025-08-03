@@ -72,10 +72,6 @@
     "hasPesticideManagement": false
   },
   "attributes": {
-    "industry": "winemaking",
-    "subIndustry": "agritourism",
-    "numEmployees": 70,
-    "annualRevenue": 8800000,
     "counties": ["Sonoma"]
   },
   "createdAt": "2024-01-01T00:00:00.000Z",

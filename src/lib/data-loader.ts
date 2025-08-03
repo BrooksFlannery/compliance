@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { addBusiness, addRule, clearStorage } from './storage';
+import { addBusiness, addRule, clearStorage, getAllRules } from './storage';
 import { BusinessSchema, RuleSchema } from './schemas';
 import type { Business, Rule } from './schemas';
 
@@ -36,6 +36,7 @@ export const loadBusinessData = (): void => {
         const validation = BusinessSchema.safeParse(businessWithDates);
         if (!validation.success) {
           console.error(`Business validation failed for ${file}:`, validation.error);
+          console.error('Business data that failed validation:', JSON.stringify(businessWithDates, null, 2));
           return;
         }
         
@@ -112,12 +113,16 @@ export const loadRuleData = (): void => {
         });
         
         console.log(`Loaded ${validRulesCount} valid rules from ${file}`);
+        if (validRulesCount === 0) {
+          console.log(`No valid rules loaded from ${file} - checking structure:`, JSON.stringify(rulesData, null, 2).substring(0, 500));
+        }
       } catch (error) {
         console.error(`Error loading rule file ${file}:`, error);
       }
     });
 
     console.log(`Successfully loaded rules from ${jsonFiles.length} files`);
+    console.log(`Total rules in storage: ${getAllRules().length}`);
   } catch (error) {
     console.error('Error loading rule data:', error);
   }

@@ -3,7 +3,7 @@ import { createTRPCRouter, publicProcedure } from "../trpc";
 import { TRPCError } from "@trpc/server";
 import { BusinessSchema, GetBusinessInputSchema, GetBusinessRulesInputSchema, RuleSchema } from "../../../lib/schemas";
 import { evaluateRulesForBusiness } from "../../../lib/rule-engine";
-import { getAllBusinesses, getBusiness } from "../../../lib/storage";
+import { getAllBusinesses, getBusiness, getAllRules } from "../../../lib/storage";
 
 export const businessRouter = createTRPCRouter({
   getAllBusinesses: publicProcedure
@@ -13,6 +13,11 @@ export const businessRouter = createTRPCRouter({
         console.log('getAllBusinesses called');
         const businesses = getAllBusinesses();
         console.log('getAllBusinesses result:', businesses.length, 'businesses');
+        if (businesses.length === 0) {
+          console.log('No businesses found in storage - this might indicate a data loading issue');
+        } else {
+          console.log('Business names:', businesses.map(b => b.name));
+        }
         return businesses;
       } catch (error) {
         console.error('getAllBusinesses error:', error);
@@ -50,6 +55,11 @@ export const businessRouter = createTRPCRouter({
           console.log('Business not found for rules:', input.businessId);
           throw new TRPCError({ code: 'NOT_FOUND' });
         }
+        
+        // Debug: Check how many rules are in storage
+        const allRules = getAllRules();
+        console.log('Total rules in storage:', allRules.length);
+        
         const rules = evaluateRulesForBusiness(business);
         console.log('getBusinessRules result:', rules.length, 'rules for', business.name);
         return rules;

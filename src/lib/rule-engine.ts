@@ -32,16 +32,21 @@ const evaluateCriterion = (criterion: Criterion, business: Business): boolean =>
     // Nested path - check in composable schemas first, then attributes
     businessValue = getNestedValue(business, key);
   } else {
-    // Flat key: check root-level properties first (including flags)
+    // Flat key: check root-level properties first, then flags, then attributes
     // @ts-ignore - dynamic access
     businessValue = (business as any)[key];
+
+    // Check flags if not found
+    if (businessValue === undefined) {
+      businessValue = (business.flags as any)?.[key];
+    }
 
     // Fallback to attributes map
     if (businessValue === undefined) {
       businessValue = business.attributes?.[key];
     }
   }
-
+  
   // Use the enhanced comparison function that handles currency-aware operations
   return compareValues(businessValue, operator, value);
 };
@@ -53,9 +58,11 @@ const evaluateCriteriaGroup = (group: CriteriaGroup, business: Business): boolea
   const results = group.criteria.map(criterion => evaluateCriterion(criterion, business));
 
   if (group.operator === 'AND') {
-    return results.every(result => result);
+    const result = results.every(result => result);
+    return result;
   } else if (group.operator === 'OR') {
-    return results.some(result => result);
+    const result = results.some(result => result);
+    return result;
   }
 
   return false;
@@ -66,7 +73,13 @@ const evaluateRuleCriteria = (rule: Rule, business: Business): boolean => {
   if (rule.criteriaGroups.length === 0) return true;
 
   // All criteria groups must be true (AND logic between groups)
-  return rule.criteriaGroups.every(group => evaluateCriteriaGroup(group, business));
+  const result = rule.criteriaGroups.every(group => evaluateCriteriaGroup(group, business));
+  
+  if (!result) {
+    console.log(`  Rule "${rule.title}" failed - criteria groups evaluation failed`);
+  }
+  
+  return result;
 };
 
 // Main function to evaluate rules for a business
@@ -74,12 +87,20 @@ export const evaluateRulesForBusiness = (business: Business): Rule[] => {
   const allRules = getAllRules();
   const applicableRules: Rule[] = [];
 
+  console.log(`Evaluating ${allRules.length} rules for business: ${business.name}`);
+
   for (const rule of allRules) {
-    if (evaluateRuleCriteria(rule, business)) {
+    const applies = evaluateRuleCriteria(rule, business);
+    
+    if (applies) {
       applicableRules.push(rule);
+      console.log(`✓ Rule applies: ${rule.title}`);
+    } else {
+      console.log(`✗ Rule does not apply: ${rule.title}`);
     }
   }
 
+  console.log(`Total applicable rules for ${business.name}: ${applicableRules.length}`);
   return applicableRules;
 };
 
