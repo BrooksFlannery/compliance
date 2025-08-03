@@ -1,0 +1,83 @@
+{
+  "id": "arbor-sky-winery",
+  "name": "Arbor Sky Winery",
+  "locations": [
+    {
+      "country": "US",
+      "state": "CA",
+      "county": "Sonoma",
+      "city": "Sonoma",
+      "fullName": "Sonoma, Sonoma County, CA"
+    }
+  ],
+  "revenue": {
+    "amount": 8800000,
+    "currency": "USD"
+  },
+  "industry": {
+    "name": "Winemaking, Agritourism",
+    "naics": "312130",
+    "sic": "2084"
+  },
+  "activities": {
+    "activities": [
+      "wine_production",
+      "agritourism",
+      "direct_to_consumer_shipping",
+      "tasting_room",
+      "event_hosting",
+      "vineyard_management"
+    ]
+  },
+  "products": {
+    "products": [
+      "wine",
+      "wine_bottles",
+      "agritourism_experiences",
+      "event_services"
+    ]
+  },
+  "size": {
+    "numEmployees": 70,
+    "sbaSizeStandard": "Small Business",
+    "chainStatus": "single_location"
+  },
+  "type": {
+    "businessType": "Corporation"
+  },
+  "flags": {
+    "hasAlcoholLicense": true,
+    "hasDirectToConsumerShipping": true,
+    "hasOrganicCertification": false,
+    "hasCSWACertification": false,
+    "hasAgritourismActivities": true,
+    "hasWineProduction": true,
+    "hasBottlingFacility": true,
+    "hasTastingRoom": true,
+    "hasEventSpace": true,
+    "hasVineyard": true,
+    "hasWaterConservationMeasures": false,
+    "hasNoiseManagement": false,
+    "hasHazardCommunicationProgram": false,
+    "hasIIPP": false,
+    "hasFMLACompliance": true,
+    "hasCFRACompliance": true,
+    "hasPFLCompliance": true,
+    "hasWageHourCompliance": true,
+    "hasADACompliance": false,
+    "hasCCPACompliance": true,
+    "hasFSMACompliance": false,
+    "hasCRVCompliance": true,
+    "hasSustainableFarming": false,
+    "hasPesticideManagement": false
+  },
+  "attributes": {
+    "industry": "winemaking",
+    "subIndustry": "agritourism",
+    "numEmployees": 70,
+    "annualRevenue": 8800000,
+    "counties": ["Sonoma"]
+  },
+  "createdAt": "2024-01-01T00:00:00.000Z",
+  "updatedAt": "2024-01-01T00:00:00.000Z"
+} 
