@@ -1,0 +1,74 @@
+{
+  "id": "agrispan-conglomerate",
+  "name": "AgriSpan Conglomerate",
+  "locations": [
+    {
+      "country": "US",
+      "state": "IA",
+      "county": "Polk",
+      "city": "Des Moines",
+      "fullName": "Des Moines, Polk County, IA"
+    },
+    {
+      "country": "ZA",
+      "province": "Gauteng",
+      "city": "Johannesburg",
+      "fullName": "Johannesburg, Gauteng, South Africa"
+    },
+    {
+      "country": "AR",
+      "province": "Buenos Aires",
+      "city": "Buenos Aires",
+      "fullName": "Buenos Aires, Argentina"
+    }
+  ],
+  "revenue": {
+    "amount": 275000000000,
+    "currency": "USD"
+  },
+  "industry": {
+    "name": "Industrial Agriculture, Food Supply Chain",
+    "naics": "111998",
+    "sic": "0111"
+  },
+  "activities": {
+    "activities": [
+      "agricultural_production",
+      "food_processing",
+      "international_trade",
+      "employs_minors",
+      "handles_chemicals",
+      "food_supply_chain"
+    ]
+  },
+  "products": {
+    "products": [
+      "HS:1001.90",
+      "HS:1005.90",
+      "HS:1201.00",
+      "HS:1507.10"
+    ]
+  },
+  "size": {
+    "numEmployees": 325000,
+    "sbaSizeStandard": "Large Business",
+    "chainStatus": "large_chain"
+  },
+  "type": {
+    "businessType": "Corporation"
+  },
+  "flags": {
+    "hasAgriculturalOperations": true,
+    "foodSupplyChain": true,
+    "internationalOperations": true,
+    "largeEnterprise": true
+  },
+  "attributes": {
+    "cropTypes": ["wheat", "corn", "soybeans", "sunflower"],
+    "livestockTypes": ["cattle", "poultry"],
+    "processingFacilities": 45,
+    "exportMarkets": ["EU", "Asia", "Africa", "South America"]
+  },
+  "createdAt": "2024-01-01T00:00:00.000Z",
+  "updatedAt": "2024-01-01T00:00:00.000Z"
+} 

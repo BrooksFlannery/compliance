@@ -1,0 +1,390 @@
+[
+  {
+    "id": "rule_1",
+    "title": "Food Safety Modernization Act (FSMA) Compliance",
+    "shortDescription": "Businesses involved in the food supply chain must adhere to FSMA regulations, including preventative controls, verification, and supply chain program requirements, if they generate over $500,000 annually (§ 21 CFR Part 117).",
+    "categories": ["Health & Safety (OSHA, food safety, sanitation)", "Federal vs State vs Local"],
+    "jurisdiction": "United States - Federal",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_1",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_1", "key": "flags.foodSupplyChain", "operator": "=", "value": true },
+          { "id": "c_2", "key": "revenue", "operator": "CURRENCY_GTE", "value": { "amount": 500000, "currency": "USD" } }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_2",
+    "title": "U.S. Department of Agriculture (USDA) Animal and Plant Health Inspection Service (APHIS) Certification",
+    "shortDescription": "Exporters of agricultural products must obtain USDA-APHIS certification to ensure compliance with phytosanitary standards for products destined for foreign markets (7 CFR Part 353).",
+    "categories": ["Industry Certifications & Standards", "Federal vs State vs Local"],
+    "jurisdiction": "United States - Federal",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_2",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_3", "key": "flags.hasAgriculturalOperations", "operator": "=", "value": true },
+          { "id": "c_4", "key": "flags.internationalOperations", "operator": "=", "value": true }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_3",
+    "title": "Occupational Safety and Health Administration (OSHA) General Industry Standards",
+    "shortDescription": "Employers in agriculture with 11 or more employees must maintain safety protocols and hazard communication procedures according to 29 CFR §1910.",
+    "categories": ["Workplace Safety (OSHA, training)", "Federal vs State vs Local"],
+    "jurisdiction": "United States - Federal",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_3",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_5", "key": "size.numEmployees", "operator": ">=", "value": 11 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_4",
+    "title": "Iowa Fertilizer Storage and Handling Regulations",
+    "shortDescription": "Facilities storing more than 5,000 gallons of fertilizer must comply with Iowa Administrative Code rules for secondary containment and emergency response plans (Iowa Admin. Code r. 21-43.20).",
+    "categories": ["Environmental Compliance (waste, emissions, packaging)", "Federal vs State vs Local"],
+    "jurisdiction": "Iowa - State",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_4",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_6", "key": "locations.country", "operator": "=", "value": "US" },
+          { "id": "c_7", "key": "locations.state", "operator": "=", "value": "IA" },
+          { "id": "c_8", "key": "flags.hasAgriculturalOperations", "operator": "=", "value": true }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_5",
+    "title": "Environmental Protection Agency (EPA) Clean Water Act",
+    "shortDescription": "Operations discharging pollutants into U.S. waters must obtain a National Pollutant Discharge Elimination System (NPDES) permit, applicable to CAFOs with 1,000+ animal units (40 CFR Part 122).",
+    "categories": ["Environmental Compliance (waste, emissions, packaging)", "Federal vs State vs Local"],
+    "jurisdiction": "United States - Federal",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_5",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_9", "key": "flags.hasAgriculturalOperations", "operator": "=", "value": true }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_6",
+    "title": "Iowa Sales and Use Tax",
+    "shortDescription": "Businesses with Iowa-based operations exceeding $100,000 in gross revenue are required to collect state sales and use taxes on qualifying transactions (Iowa Code § 423.2).",
+    "categories": ["Tax & Financial Reporting", "Federal vs State vs Local"],
+    "jurisdiction": "Iowa - State",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_6",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_10", "key": "locations.country", "operator": "=", "value": "US" },
+          { "id": "c_11", "key": "locations.state", "operator": "=", "value": "IA" },
+          { "id": "c_12", "key": "revenue", "operator": "CURRENCY_GTE", "value": { "amount": 100000, "currency": "USD" } }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_7",
+    "title": "South African Occupational Health and Safety Act",
+    "shortDescription": "Farming operations with 50 or more employees must conduct health risk assessments and comply with safety and health standards established by the Department of Employment and Labour (Occupational Health and Safety Act No. 85 of 1993).",
+    "categories": ["Workplace Safety (OSHA, training)", "Federal vs State vs Local"],
+    "jurisdiction": "South Africa - National",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_7",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_13", "key": "locations.country", "operator": "=", "value": "ZA" },
+          { "id": "c_14", "key": "locations.province", "operator": "=", "value": "Gauteng" },
+          { "id": "c_15", "key": "size.numEmployees", "operator": ">=", "value": 50 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_8",
+    "title": "South African National Standards (SANS) 10049",
+    "shortDescription": "Food manufacturers must meet prerequisites for hygiene requirements in food processing to comply with SANS 10049 for local and export markets.",
+    "categories": ["Health & Safety (OSHA, food safety, sanitation)", "Industry Certifications & Standards"],
+    "jurisdiction": "South Africa - National",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_8",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_16", "key": "locations.country", "operator": "=", "value": "ZA" },
+          { "id": "c_17", "key": "locations.province", "operator": "=", "value": "Gauteng" },
+          { "id": "c_18", "key": "flags.foodSupplyChain", "operator": "=", "value": true }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_9",
+    "title": "Broad-Based Black Economic Empowerment (B-BBEE) Compliance",
+    "shortDescription": "Companies with an annual turnover exceeding ZAR 10 million must report their B-BBEE status and comply with empowerment criteria set forth in the B-BBEE Act (Act No. 53 of 2003).",
+    "categories": ["Federal vs State vs Local"],
+    "jurisdiction": "South Africa - National",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_9",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_19", "key": "locations.country", "operator": "=", "value": "ZA" },
+          { "id": "c_20", "key": "locations.province", "operator": "=", "value": "Gauteng" },
+          { "id": "c_21", "key": "revenue", "operator": "CURRENCY_GTE", "value": { "amount": 10000000, "currency": "ZAR" } }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_10",
+    "title": "South African Labour Relations Act",
+    "shortDescription": "Employers with 50 or more employees must adhere to the Labour Relations Act, including provisions on collective bargaining and employee rights (Act No. 66 of 1995).",
+    "categories": ["Hiring & Onboarding Rules", "Federal vs State vs Local"],
+    "jurisdiction": "South Africa - National",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_10",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_22", "key": "locations.country", "operator": "=", "value": "ZA" },
+          { "id": "c_23", "key": "locations.province", "operator": "=", "value": "Gauteng" },
+          { "id": "c_24", "key": "size.numEmployees", "operator": ">=", "value": 50 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_11",
+    "title": "Ministerio de Agricultura, Ganadería y Pesca Regulations",
+    "shortDescription": "Exporters of agro-products from Buenos Aires must comply with national phytosanitary and animal health requirements as regulated by SENASA (Servicio Nacional de Sanidad y Calidad Agroalimentaria).",
+    "categories": ["Industry Certifications & Standards", "Federal vs State vs Local"],
+    "jurisdiction": "Argentina - National",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_11",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_25", "key": "locations.country", "operator": "=", "value": "AR" },
+          { "id": "c_26", "key": "locations.province", "operator": "=", "value": "Buenos Aires" },
+          { "id": "c_27", "key": "flags.hasAgriculturalOperations", "operator": "=", "value": true }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_12",
+    "title": "Argentinean Environmental Protection Act",
+    "shortDescription": "Companies producing agricultural outputs are required to adhere to national waste management and environmental protection criteria under Ley General del Ambiente No. 25.675.",
+    "categories": ["Environmental Compliance (waste, emissions, packaging)", "Federal vs State vs Local"],
+    "jurisdiction": "Argentina - National",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_12",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_28", "key": "locations.country", "operator": "=", "value": "AR" },
+          { "id": "c_29", "key": "locations.province", "operator": "=", "value": "Buenos Aires" },
+          { "id": "c_30", "key": "flags.hasAgriculturalOperations", "operator": "=", "value": true }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_13",
+    "title": "Buenos Aires Local Labor Ordinances",
+    "shortDescription": "Businesses employing more than 10 workers must comply with local labor regulations ensuring minimum wage, social security contributions, and employee benefits, as regulated by the Buenos Aires Ministry of Labour.",
+    "categories": ["Wage & Hour Laws", "Federal vs State vs Local"],
+    "jurisdiction": "Buenos Aires - Local",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_13",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_31", "key": "locations.country", "operator": "=", "value": "AR" },
+          { "id": "c_32", "key": "locations.province", "operator": "=", "value": "Buenos Aires" },
+          { "id": "c_33", "key": "size.numEmployees", "operator": ">=", "value": 10 }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_14",
+    "title": "Argentine Food Code Compliance",
+    "shortDescription": "Food supply chain entities must adhere to national safety standards outlined in the Argentine Food Code (Código Alimentario Argentino) when selling products domestically.",
+    "categories": ["Health & Safety (OSHA, food safety, sanitation)", "Federal vs State vs Local"],
+    "jurisdiction": "Argentina - National",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_14",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_34", "key": "locations.country", "operator": "=", "value": "AR" },
+          { "id": "c_35", "key": "locations.province", "operator": "=", "value": "Buenos Aires" },
+          { "id": "c_36", "key": "flags.foodSupplyChain", "operator": "=", "value": true }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_15",
+    "title": "International Organization for Standardization (ISO) ISO 22000:2018",
+    "shortDescription": "Companies involved in the food supply chain must establish a food safety management system in accordance with ISO 22000:2018 for a systematic approach to managing food safety risks.",
+    "categories": ["Industry Certifications & Standards"],
+    "jurisdiction": "International",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_15",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_37", "key": "flags.foodSupplyChain", "operator": "=", "value": true }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_16",
+    "title": "World Trade Organization (WTO) Sanitary and Phytosanitary (SPS) Agreement Compliance",
+    "shortDescription": "Exporters must ensure compliance with SPS measures when trading agricultural products internationally to meet health and safety regulations set forth by trading partner nations.",
+    "categories": ["Industry Certifications & Standards"],
+    "jurisdiction": "International",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_16",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_38", "key": "flags.hasAgriculturalOperations", "operator": "=", "value": true },
+          { "id": "c_39", "key": "flags.internationalOperations", "operator": "=", "value": true }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_17",
+    "title": "International Labour Organization (ILO) Conventions",
+    "shortDescription": "Adherence to ILO conventions applicable to countries of operation, including standards on working conditions, wages, and hours in industrial agriculture sectors.",
+    "categories": ["Wage & Hour Laws", "Industry Certifications & Standards"],
+    "jurisdiction": "International",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_17",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_40", "key": "flags.hasAgriculturalOperations", "operator": "=", "value": true },
+          { "id": "c_41", "key": "flags.internationalOperations", "operator": "=", "value": true }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_18",
+    "title": "International Finance Corporation (IFC) Environmental and Social Performance Standards",
+    "shortDescription": "Operations receiving international financing exceeding $1 million must comply with IFC standards regarding environmental and social risks in project finance.",
+    "categories": ["Environmental Compliance (waste, emissions, packaging)", "Industry Certifications & Standards"],
+    "jurisdiction": "International",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_18",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_42", "key": "flags.largeEnterprise", "operator": "=", "value": true },
+          { "id": "c_43", "key": "flags.internationalOperations", "operator": "=", "value": true }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_19",
+    "title": "Cybersecurity Information Sharing Act (CISA) Compliance",
+    "shortDescription": "Large agribusinesses with over $100 million in annual revenue must implement cybersecurity measures and incident reporting protocols as per CISA guidelines (6 U.S.C. §1501 et seq.).",
+    "categories": ["Industry Certifications & Standards"],
+    "jurisdiction": "United States - Federal",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_19",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_44", "key": "flags.largeEnterprise", "operator": "=", "value": true },
+          { "id": "c_45", "key": "revenue", "operator": "CURRENCY_GTE", "value": { "amount": 100000000, "currency": "USD" } }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rule_20",
+    "title": "Employee Pension Plan Compliance (ERISA)",
+    "shortDescription": "Employers with 100+ employees in the U.S. must comply with Employee Retirement Income Security Act standards for managing pension and health plans.",
+    "categories": ["Benefits & Leave", "Federal vs State vs Local"],
+    "jurisdiction": "United States - Federal",
+    "createdAt": "2024-01-01T00:00:00.000Z",
+    "updatedAt": "2024-01-01T00:00:00.000Z",
+    "criteriaGroups": [
+      {
+        "id": "cg_20",
+        "operator": "AND",
+        "criteria": [
+          { "id": "c_46", "key": "locations.country", "operator": "=", "value": "US" },
+          { "id": "c_47", "key": "locations.state", "operator": "=", "value": "IA" },
+          { "id": "c_48", "key": "size.numEmployees", "operator": ">=", "value": 100 }
+        ]
+      }
+    ]
+  }
+] 

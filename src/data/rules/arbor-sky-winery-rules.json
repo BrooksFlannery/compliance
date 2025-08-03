@@ -1,0 +1,604 @@
+{
+  "rules": [
+    {
+      "id": "arbor-sky-winery-rule-1",
+      "title": "California Alcohol Beverage Control Act",
+      "shortDescription": "All establishments engaged in the production, distribution, or retail of alcoholic beverages must secure a license from the California Department of Alcoholic Beverage Control. Licensees must display their license prominently",
+      "fullText": "California Alcohol Beverage Control Act (Cal. Code Regs Title 4 §1-100): All establishments engaged in the production, distribution, or retail of alcoholic beverages must secure a license from the California Department of Alcoholic Beverage Control. Licensees must display their license prominently",
+      "source": "Cal. Code Regs Title 4 §1-100",
+      "jurisdiction": "CA",
+      "effectiveDate": "2024-01-01T00:00:00.000Z",
+      "categories": ["Licensing & Permits", "Industry Certifications & Standards"],
+      "criteriaGroups": [
+        {
+          "id": "arbor-sky-winery-cg-1",
+          "operator": "AND",
+          "criteria": [
+            {
+              "id": "arbor-sky-winery-c-1-1",
+              "key": "locations",
+              "operator": "CONTAINS",
+              "value": "CA"
+            },
+            {
+              "id": "arbor-sky-winery-c-1-2",
+              "key": "hasAlcoholLicense",
+              "operator": "=",
+              "value": true
+            }
+          ]
+        }
+      ],
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "updatedAt": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "arbor-sky-winery-rule-2",
+      "title": "Federal Alcohol Administration Act",
+      "shortDescription": "Winemakers must comply with the labeling requirements for wine, including alcohol content, bottler's information, and health warnings. Non-compliance may result in penalties or suspension of production rights",
+      "fullText": "Federal Alcohol Administration Act (27 U.S.C. §201 et seq.): Winemakers must comply with the labeling requirements for wine, including alcohol content, bottler's information, and health warnings. Non-compliance may result in penalties or suspension of production rights",
+      "source": "27 U.S.C. §201 et seq.",
+      "jurisdiction": "Federal",
+      "effectiveDate": "2024-01-01T00:00:00.000Z",
+      "categories": ["Industry Certifications & Standards", "Consumer Protection & Advertising"],
+      "criteriaGroups": [
+        {
+          "id": "arbor-sky-winery-cg-2",
+          "operator": "AND",
+          "criteria": [
+            {
+              "id": "arbor-sky-winery-c-2-1",
+              "key": "industry",
+              "operator": "=",
+              "value": "winemaking"
+            },
+            {
+              "id": "arbor-sky-winery-c-2-2",
+              "key": "hasWineProduction",
+              "operator": "=",
+              "value": true
+            }
+          ]
+        }
+      ],
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "updatedAt": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "arbor-sky-winery-rule-3",
+      "title": "California Direct-to-Consumer Wine Shipping",
+      "shortDescription": "Winery with an active winegrower license may ship wine directly to California consumers, provided they also register with the recipient state's regulatory body if shipped outside of California",
+      "fullText": "California Direct-to-Consumer Wine Shipping (Bus. & Prof. Code §23661.2): Winery with an active winegrower license may ship wine directly to California consumers, provided they also register with the recipient state's regulatory body if shipped outside of California",
+      "source": "Bus. & Prof. Code §23661.2",
+      "jurisdiction": "CA",
+      "effectiveDate": "2024-01-01T00:00:00.000Z",
+      "categories": ["Licensing & Permits", "Industry Certifications & Standards"],
+      "criteriaGroups": [
+        {
+          "id": "arbor-sky-winery-cg-3",
+          "operator": "AND",
+          "criteria": [
+            {
+              "id": "arbor-sky-winery-c-3-1",
+              "key": "locations",
+              "operator": "CONTAINS",
+              "value": "CA"
+            },
+            {
+              "id": "arbor-sky-winery-c-3-2",
+              "key": "hasDirectToConsumerShipping",
+              "operator": "=",
+              "value": true
+            }
+          ]
+        }
+      ],
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "updatedAt": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "arbor-sky-winery-rule-4",
+      "title": "Sonoma County Viticultural Regulations",
+      "shortDescription": "Winemakers must adhere to specific land use and zoning regulations, including limits on pesticide use and adherence to sustainable farming practices. Annual inspections are conducted to ensure compliance",
+      "fullText": "Sonoma County Viticultural Regulations (Sonoma County Code §26-88-200): Winemakers must adhere to specific land use and zoning regulations, including limits on pesticide use and adherence to sustainable farming practices. Annual inspections are conducted to ensure compliance",
+      "source": "Sonoma County Code §26-88-200",
+      "jurisdiction": "Sonoma County",
+      "effectiveDate": "2024-01-01T00:00:00.000Z",
+      "categories": ["Zoning & Land Use", "Environmental Compliance (waste, emissions, packaging)"],
+      "criteriaGroups": [
+        {
+          "id": "arbor-sky-winery-cg-4",
+          "operator": "AND",
+          "criteria": [
+            {
+              "id": "arbor-sky-winery-c-4-1",
+              "key": "counties",
+              "operator": "CONTAINS",
+              "value": "Sonoma"
+            },
+            {
+              "id": "arbor-sky-winery-c-4-2",
+              "key": "industry",
+              "operator": "=",
+              "value": "winemaking"
+            }
+          ]
+        }
+      ],
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "updatedAt": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "arbor-sky-winery-rule-5",
+      "title": "California Redemption Value (CRV) Program",
+      "shortDescription": "Beverage containers, including wine bottles, sold in California are subject to the state's CRV program, which incentivizes recycling through a deposit system",
+      "fullText": "California Redemption Value (CRV) Program (Cal. Pub. Res. Code §§14500-14599): Beverage containers, including wine bottles, sold in California are subject to the state's CRV program, which incentivizes recycling through a deposit system",
+      "source": "Cal. Pub. Res. Code §§14500-14599",
+      "jurisdiction": "CA",
+      "effectiveDate": "2024-01-01T00:00:00.000Z",
+      "categories": ["Environmental Compliance (waste, emissions, packaging)"],
+      "criteriaGroups": [
+        {
+          "id": "arbor-sky-winery-cg-5",
+          "operator": "AND",
+          "criteria": [
+            {
+              "id": "arbor-sky-winery-c-5-1",
+              "key": "locations",
+              "operator": "CONTAINS",
+              "value": "CA"
+            },
+            {
+              "id": "arbor-sky-winery-c-5-2",
+              "key": "hasCRVCompliance",
+              "operator": "=",
+              "value": true
+            }
+          ]
+        }
+      ],
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "updatedAt": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "arbor-sky-winery-rule-6",
+      "title": "Food Safety Modernization Act (FSMA)",
+      "shortDescription": "Winemaking facilities are required to implement food safety practices, including a hazard analysis and risk-based preventive controls (HARPC). Facilities must register with the FDA for inspection",
+      "fullText": "Food Safety Modernization Act (FSMA) (21 U.S.C. §2201 et seq.): Winemaking facilities are required to implement food safety practices, including a hazard analysis and risk-based preventive controls (HARPC). Facilities must register with the FDA for inspection",
+      "source": "21 U.S.C. §2201 et seq.",
+      "jurisdiction": "Federal",
+      "effectiveDate": "2024-01-01T00:00:00.000Z",
+      "categories": ["Health & Safety (OSHA, food safety, sanitation)", "Industry Certifications & Standards"],
+      "criteriaGroups": [
+        {
+          "id": "arbor-sky-winery-cg-6",
+          "operator": "AND",
+          "criteria": [
+            {
+              "id": "arbor-sky-winery-c-6-1",
+              "key": "industry",
+              "operator": "=",
+              "value": "winemaking"
+            },
+            {
+              "id": "arbor-sky-winery-c-6-2",
+              "key": "hasFSMACompliance",
+              "operator": "=",
+              "value": true
+            }
+          ]
+        }
+      ],
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "updatedAt": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "arbor-sky-winery-rule-7",
+      "title": "Organic Certification",
+      "shortDescription": "Winemakers labeling their products as 'organic' must comply with USDA organic standards. Certification involves annual inspections and maintaining organic integrity throughout the production process",
+      "fullText": "Organic Certification (National Organic Program, 7 CFR Part 205): Winemakers labeling their products as 'organic' must comply with USDA organic standards. Certification involves annual inspections and maintaining organic integrity throughout the production process",
+      "source": "National Organic Program, 7 CFR Part 205",
+      "jurisdiction": "Federal",
+      "effectiveDate": "2024-01-01T00:00:00.000Z",
+      "categories": ["Industry Certifications & Standards", "Consumer Protection & Advertising"],
+      "criteriaGroups": [
+        {
+          "id": "arbor-sky-winery-cg-7",
+          "operator": "AND",
+          "criteria": [
+            {
+              "id": "arbor-sky-winery-c-7-1",
+              "key": "industry",
+              "operator": "=",
+              "value": "winemaking"
+            },
+            {
+              "id": "arbor-sky-winery-c-7-2",
+              "key": "hasOrganicCertification",
+              "operator": "=",
+              "value": true
+            }
+          ]
+        }
+      ],
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "updatedAt": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "arbor-sky-winery-rule-8",
+      "title": "California Sustainable Winegrowing Alliance (CSWA) Certification",
+      "shortDescription": "Winemakers seeking CSWA certification must meet established criteria for sustainable practices in vineyard and winery operations, undergo self-assessments, and participate in educational workshops",
+      "fullText": "California Sustainable Winegrowing Alliance (CSWA) Certification: Winemakers seeking CSWA certification must meet established criteria for sustainable practices in vineyard and winery operations, undergo self-assessments, and participate in educational workshops",
+      "source": "CSWA",
+      "jurisdiction": "CA",
+      "effectiveDate": "2024-01-01T00:00:00.000Z",
+      "categories": ["Industry Certifications & Standards", "Environmental Compliance (waste, emissions, packaging)"],
+      "criteriaGroups": [
+        {
+          "id": "arbor-sky-winery-cg-8",
+          "operator": "AND",
+          "criteria": [
+            {
+              "id": "arbor-sky-winery-c-8-1",
+              "key": "locations",
+              "operator": "CONTAINS",
+              "value": "CA"
+            },
+            {
+              "id": "arbor-sky-winery-c-8-2",
+              "key": "hasCSWACertification",
+              "operator": "=",
+              "value": true
+            }
+          ]
+        }
+      ],
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "updatedAt": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "arbor-sky-winery-rule-9",
+      "title": "Sonoma County Water Conservation Ordinance",
+      "shortDescription": "Agricultural operations, including wineries, must adhere to specific water conservation measures, particularly during drought periods. This includes implementing water-saving irrigation systems and reporting usage",
+      "fullText": "Sonoma County Water Conservation Ordinance (Sonoma County Code §26-64): Agricultural operations, including wineries, must adhere to specific water conservation measures, particularly during drought periods. This includes implementing water-saving irrigation systems and reporting usage",
+      "source": "Sonoma County Code §26-64",
+      "jurisdiction": "Sonoma County",
+      "effectiveDate": "2024-01-01T00:00:00.000Z",
+      "categories": ["Environmental Compliance (waste, emissions, packaging)", "Zoning & Land Use"],
+      "criteriaGroups": [
+        {
+          "id": "arbor-sky-winery-cg-9",
+          "operator": "AND",
+          "criteria": [
+            {
+              "id": "arbor-sky-winery-c-9-1",
+              "key": "counties",
+              "operator": "CONTAINS",
+              "value": "Sonoma"
+            },
+            {
+              "id": "arbor-sky-winery-c-9-2",
+              "key": "hasWaterConservationMeasures",
+              "operator": "=",
+              "value": true
+            }
+          ]
+        }
+      ],
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "updatedAt": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "arbor-sky-winery-rule-10",
+      "title": "Sonoma County Noise Ordinance",
+      "shortDescription": "Winery events and agritourism activities must comply with county noise regulations, restricting loud operations during night hours to minimize disturbance to surrounding communities",
+      "fullText": "Sonoma County Noise Ordinance (Sonoma County Code §14-22): Winery events and agritourism activities must comply with county noise regulations, restricting loud operations during night hours to minimize disturbance to surrounding communities",
+      "source": "Sonoma County Code §14-22",
+      "jurisdiction": "Sonoma County",
+      "effectiveDate": "2024-01-01T00:00:00.000Z",
+      "categories": ["Zoning & Land Use"],
+      "criteriaGroups": [
+        {
+          "id": "arbor-sky-winery-cg-10",
+          "operator": "AND",
+          "criteria": [
+            {
+              "id": "arbor-sky-winery-c-10-1",
+              "key": "counties",
+              "operator": "CONTAINS",
+              "value": "Sonoma"
+            },
+            {
+              "id": "arbor-sky-winery-c-10-2",
+              "key": "hasAgritourismActivities",
+              "operator": "=",
+              "value": true
+            }
+          ]
+        }
+      ],
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "updatedAt": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "arbor-sky-winery-rule-11",
+      "title": "OSHA Hazard Communication Standard",
+      "shortDescription": "Employers must have a written hazard communication program and provide information and training to employees regarding hazardous chemicals in the workplace",
+      "fullText": "OSHA Hazard Communication Standard (29 CFR §1910.1200): Employers must have a written hazard communication program and provide information and training to employees regarding hazardous chemicals in the workplace",
+      "source": "29 CFR §1910.1200",
+      "jurisdiction": "Federal",
+      "effectiveDate": "2024-01-01T00:00:00.000Z",
+      "categories": ["Workplace Safety (OSHA, training)", "Health & Safety (OSHA, food safety, sanitation)"],
+      "criteriaGroups": [
+        {
+          "id": "arbor-sky-winery-cg-11",
+          "operator": "AND",
+          "criteria": [
+            {
+              "id": "arbor-sky-winery-c-11-1",
+              "key": "numEmployees",
+              "operator": ">=",
+              "value": 1
+            },
+            {
+              "id": "arbor-sky-winery-c-11-2",
+              "key": "hasHazardCommunicationProgram",
+              "operator": "=",
+              "value": true
+            }
+          ]
+        }
+      ],
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "updatedAt": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "arbor-sky-winery-rule-12",
+      "title": "California Occupational Safety and Health Act",
+      "shortDescription": "Employers must develop an Injury and Illness Prevention Program (IIPP), which includes identifying workplace hazards, and ensuring health and safety training for employees",
+      "fullText": "California Occupational Safety and Health Act (Cal/OSHA, Labor Code §6300 et seq.): Employers must develop an Injury and Illness Prevention Program (IIPP), which includes identifying workplace hazards, and ensuring health and safety training for employees",
+      "source": "Cal/OSHA, Labor Code §6300 et seq.",
+      "jurisdiction": "CA",
+      "effectiveDate": "2024-01-01T00:00:00.000Z",
+      "categories": ["Workplace Safety (OSHA, training)", "Health & Safety (OSHA, food safety, sanitation)"],
+      "criteriaGroups": [
+        {
+          "id": "arbor-sky-winery-cg-12",
+          "operator": "AND",
+          "criteria": [
+            {
+              "id": "arbor-sky-winery-c-12-1",
+              "key": "locations",
+              "operator": "CONTAINS",
+              "value": "CA"
+            },
+            {
+              "id": "arbor-sky-winery-c-12-2",
+              "key": "numEmployees",
+              "operator": ">=",
+              "value": 1
+            },
+            {
+              "id": "arbor-sky-winery-c-12-3",
+              "key": "hasIIPP",
+              "operator": "=",
+              "value": true
+            }
+          ]
+        }
+      ],
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "updatedAt": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "arbor-sky-winery-rule-13",
+      "title": "Family and Medical Leave Act (FMLA)",
+      "shortDescription": "Employers with 50 or more employees must provide eligible employees with up to 12 weeks of unpaid, job-protected leave per year for specified family and medical reasons",
+      "fullText": "Family and Medical Leave Act (FMLA) (29 CFR Part 825): Employers with 50 or more employees must provide eligible employees with up to 12 weeks of unpaid, job-protected leave per year for specified family and medical reasons",
+      "source": "29 CFR Part 825",
+      "jurisdiction": "Federal",
+      "effectiveDate": "2024-01-01T00:00:00.000Z",
+      "categories": ["Benefits & Leave"],
+      "criteriaGroups": [
+        {
+          "id": "arbor-sky-winery-cg-13",
+          "operator": "AND",
+          "criteria": [
+            {
+              "id": "arbor-sky-winery-c-13-1",
+              "key": "numEmployees",
+              "operator": ">=",
+              "value": 50
+            },
+            {
+              "id": "arbor-sky-winery-c-13-2",
+              "key": "hasFMLACompliance",
+              "operator": "=",
+              "value": true
+            }
+          ]
+        }
+      ],
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "updatedAt": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "arbor-sky-winery-rule-14",
+      "title": "California Family Rights Act (CFRA)",
+      "shortDescription": "Employers with 5 or more employees must provide eligible employees with up to 12 weeks of unpaid protected leave for family-care and medical reasons, including leave to care for a domestic partner or child",
+      "fullText": "California Family Rights Act (CFRA) (Gov. Code §12945.2): Employers with 5 or more employees must provide eligible employees with up to 12 weeks of unpaid protected leave for family-care and medical reasons, including leave to care for a domestic partner or child",
+      "source": "Gov. Code §12945.2",
+      "jurisdiction": "CA",
+      "effectiveDate": "2024-01-01T00:00:00.000Z",
+      "categories": ["Benefits & Leave"],
+      "criteriaGroups": [
+        {
+          "id": "arbor-sky-winery-cg-14",
+          "operator": "AND",
+          "criteria": [
+            {
+              "id": "arbor-sky-winery-c-14-1",
+              "key": "locations",
+              "operator": "CONTAINS",
+              "value": "CA"
+            },
+            {
+              "id": "arbor-sky-winery-c-14-2",
+              "key": "numEmployees",
+              "operator": ">=",
+              "value": 5
+            },
+            {
+              "id": "arbor-sky-winery-c-14-3",
+              "key": "hasCFRACompliance",
+              "operator": "=",
+              "value": true
+            }
+          ]
+        }
+      ],
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "updatedAt": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "arbor-sky-winery-rule-15",
+      "title": "California Paid Family Leave (PFL)",
+      "shortDescription": "Provides up to 8 weeks of partial pay to employees who take time off to care for a seriously ill family member or bond with a new child",
+      "fullText": "California Paid Family Leave (PFL) (Unemp. Ins. Code §3300-3306): Provides up to 8 weeks of partial pay to employees who take time off to care for a seriously ill family member or bond with a new child",
+      "source": "Unemp. Ins. Code §3300-3306",
+      "jurisdiction": "CA",
+      "effectiveDate": "2024-01-01T00:00:00.000Z",
+      "categories": ["Benefits & Leave"],
+      "criteriaGroups": [
+        {
+          "id": "arbor-sky-winery-cg-15",
+          "operator": "AND",
+          "criteria": [
+            {
+              "id": "arbor-sky-winery-c-15-1",
+              "key": "locations",
+              "operator": "CONTAINS",
+              "value": "CA"
+            },
+            {
+              "id": "arbor-sky-winery-c-15-2",
+              "key": "hasPFLCompliance",
+              "operator": "=",
+              "value": true
+            }
+          ]
+        }
+      ],
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "updatedAt": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "arbor-sky-winery-rule-16",
+      "title": "California Wage and Hour Laws",
+      "shortDescription": "Non-exempt employees are entitled to overtime pay at the rate of one and a half times the regular rate for hours worked beyond 8 hours per day or 40 hours per week",
+      "fullText": "California Wage and Hour Laws (IWC Wage Orders): Non-exempt employees are entitled to overtime pay at the rate of one and a half times the regular rate for hours worked beyond 8 hours per day or 40 hours per week",
+      "source": "IWC Wage Orders",
+      "jurisdiction": "CA",
+      "effectiveDate": "2024-01-01T00:00:00.000Z",
+      "categories": ["Wage & Hour Laws"],
+      "criteriaGroups": [
+        {
+          "id": "arbor-sky-winery-cg-16",
+          "operator": "AND",
+          "criteria": [
+            {
+              "id": "arbor-sky-winery-c-16-1",
+              "key": "locations",
+              "operator": "CONTAINS",
+              "value": "CA"
+            },
+            {
+              "id": "arbor-sky-winery-c-16-2",
+              "key": "numEmployees",
+              "operator": ">=",
+              "value": 1
+            },
+            {
+              "id": "arbor-sky-winery-c-16-3",
+              "key": "hasWageHourCompliance",
+              "operator": "=",
+              "value": true
+            }
+          ]
+        }
+      ],
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "updatedAt": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "arbor-sky-winery-rule-17",
+      "title": "Americans with Disabilities Act (ADA)",
+      "shortDescription": "Businesses must make reasonable accommodations for individuals with disabilities unless doing so would cause undue hardship",
+      "fullText": "Americans with Disabilities Act (ADA) (42 U.S.C. §12101 et seq.): Businesses must make reasonable accommodations for individuals with disabilities unless doing so would cause undue hardship",
+      "source": "42 U.S.C. §12101 et seq.",
+      "jurisdiction": "Federal",
+      "effectiveDate": "2024-01-01T00:00:00.000Z",
+      "categories": ["Anti-Discrimination & Accessibility"],
+      "criteriaGroups": [
+        {
+          "id": "arbor-sky-winery-cg-17",
+          "operator": "AND",
+          "criteria": [
+            {
+              "id": "arbor-sky-winery-c-17-1",
+              "key": "numEmployees",
+              "operator": ">=",
+              "value": 15
+            },
+            {
+              "id": "arbor-sky-winery-c-17-2",
+              "key": "hasADACompliance",
+              "operator": "=",
+              "value": true
+            }
+          ]
+        }
+      ],
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "updatedAt": "2024-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "arbor-sky-winery-rule-18",
+      "title": "California Consumer Privacy Act (CCPA)",
+      "shortDescription": "Businesses that collect personal information from California residents and meet criteria such as having annual gross revenues of $25 million or more must comply with consumer privacy rights",
+      "fullText": "California Consumer Privacy Act (CCPA) (Cal. Civ. Code §1798.100 et seq.): Businesses that collect personal information from California residents and meet criteria such as having annual gross revenues of $25 million or more must comply with consumer privacy rights",
+      "source": "Cal. Civ. Code §1798.100 et seq.",
+      "jurisdiction": "CA",
+      "effectiveDate": "2024-01-01T00:00:00.000Z",
+      "categories": ["Consumer Protection & Advertising"],
+      "criteriaGroups": [
+        {
+          "id": "arbor-sky-winery-cg-18",
+          "operator": "AND",
+          "criteria": [
+            {
+              "id": "arbor-sky-winery-c-18-1",
+              "key": "locations",
+              "operator": "CONTAINS",
+              "value": "CA"
+            },
+            {
+              "id": "arbor-sky-winery-c-18-2",
+              "key": "annualRevenue",
+              "operator": ">=",
+              "value": 25000000
+            },
+            {
+              "id": "arbor-sky-winery-c-18-3",
+              "key": "hasCCPACompliance",
+              "operator": "=",
+              "value": true
+            }
+          ]
+        }
+      ],
+      "createdAt": "2024-01-01T00:00:00.000Z",
+      "updatedAt": "2024-01-01T00:00:00.000Z"
+    }
+  ]
+} 
